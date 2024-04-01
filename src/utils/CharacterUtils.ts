@@ -20,7 +20,7 @@ export const fetchCharacters = async (page: number) => {
             filter[species_not_null]=1&
             filter[hair_color_not_null]=1&
             page[number]=${page}&
-            page[size]=20`
+            page[size]=15`
                 .trim()
                 .replace(/\s/g, '')
         );

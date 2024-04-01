@@ -1,0 +1,96 @@
+.character-list {
+    padding: 64px;
+}
+
+.character-list__title {
+    padding-top: 50px;
+    font-size: 72px;
+    font-weight: 600;
+
+    font-family: 'HarryPotter-ov4z';
+    letter-spacing: 12px;
+    color: white;
+    margin: 0;
+}
+
+.character-list__subheading {
+    margin: 0 0 50px 0;
+    text-transform: uppercase;
+    position: relative;
+    color: #f7e9a8;
+}
+
+.character-list__subheading::after {
+    content: '';
+    position: absolute;
+    top: calc(100% + 1.5rem);
+    height: 5px;
+    width: 3rem;
+    background: #ffffff;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+.character-list__preamble {
+    max-width: 630px;
+    margin: 0 auto 72px;
+    padding-top: 32px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.character-list__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 0 32px;
+}
+
+.character-list__item {
+    list-style: none;
+    list-style: none;
+    flex-basis: calc(33% - 18px);
+    /* background-color: rgb(235 235 235 / 40%); */
+    background-color: rgb(0 0 0 / 40%);
+
+    -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.character-list__image {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    object-position: top;
+    /* padding-top: 18px; */
+    margin-top: 18px;
+    background-color: #a3a3a3;
+
+    -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    padding: 2px;
+    background-image: unset;
+}
+
+.character-list__name {
+    font-size: 24px;
+    font-weight: 500;
+    padding: 18px 18px 8px;
+    text-align: center;
+    margin: 0;
+}
+
+.character-list__name:hover {
+    color: #fff5cb;
+}
+
+.character-list__species {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 18px;
+}

@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'HarryPotter-ov4z';
+    src: url('./../fonts/HarryPotter-ov4z.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'rubik';
+    src: url('./../fonts/Rubik-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'rubik italic';
+    src: url('./../fonts/Rubik-Italic-VariableFont_wght.ttf') format('truetype');
+}

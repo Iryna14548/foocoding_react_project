@@ -1,0 +1,34 @@
+.navigation {
+    display: flex;
+}
+
+.navigation__header {
+    display: flex;
+    flex: 1;
+    gap: 16px;
+}
+
+.navigation__title {
+    font-family: HarryPotter-ov4z, sans-serif;
+    letter-spacing: 1px;
+}
+.navigation__logo {
+    width: auto;
+    height: 75px;
+}
+
+.navigation__list {
+    display: flex;
+    gap: 40px;
+    font-family: rubik, helvetica, arial, sans-serif;
+}
+
+.navigation__item {
+    list-style: none;
+    font-size: 18px;
+}
+
+.navigation__link {
+    text-decoration: none;
+    color: white;
+}

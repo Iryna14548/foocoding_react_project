@@ -3,6 +3,7 @@ import '../styles/App.css';
 import CharacterList from './CharacterList';
 import { fetchCharacters } from '../utils/CharacterUtils';
 import Pagination from './Pagination';
+import Navigation from './Navigation';
 
 export interface Character {
     id: string;
@@ -28,14 +29,17 @@ function App() {
 
     return (
         <>
-            <CharacterList characters={characters} />
-            <Pagination
-                currentPage={currentPage}
-                onCurrentPageChange={(page: number) => {
-                    setCurrentPage(page);
-                }}
-                amountOfPages={amountOfPages}
-            />
+            <Navigation />
+            <div className="app__content">
+                <CharacterList characters={characters} />
+                <Pagination
+                    currentPage={currentPage}
+                    onCurrentPageChange={(page: number) => {
+                        setCurrentPage(page);
+                    }}
+                    amountOfPages={amountOfPages}
+                />
+            </div>
         </>
     );
 }
