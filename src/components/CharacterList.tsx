@@ -18,7 +18,12 @@ export default function CharacterList({ characters }: CharacterListProps) {
             <ul className="character-list__items">
                 {characters.map((character) => (
                     <li className="character-list__item" key={character.id}>
-                        <img src={character.image} alt={character.name} className="character-list__image" />
+                        <img
+                            src={character.image ?? '../src/images/unknown.jpg'}
+                            alt={character.name}
+                            className="character-list__image"
+                        />
+
                         <h2 className="character-list__name">{character.name}</h2>
                         <p className="character-list__species">{character.species}</p>
                     </li>
