@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../styles/App.css';
 import CharacterList from './CharacterList';
-import { fetchCharacters } from '../utils/CharacterUtils';
+import { CharacterResponse, fetchCharacters } from '../utils/CharacterUtils';
 import Pagination from './Pagination';
 import Navigation from './Navigation';
 
@@ -16,22 +16,31 @@ function App() {
     const [characters, setCharacters] = useState<Character[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [amountOfPages, setAmountOfPages] = useState(0);
+    const [searchInput, setSearchInput] = useState('');
+
+    const handleFetchCharacter = (characterResponse: CharacterResponse) => {
+        setCharacters(characterResponse.characters);
+        setAmountOfPages(characterResponse.amountOfPages);
+        //scroll to top
+        window.scrollTo(0, 0);
+    };
 
     useEffect(() => {
-        fetchCharacters(currentPage).then((characterResponse) => {
-            setCharacters(characterResponse.characters);
-            setAmountOfPages(characterResponse.amountOfPages);
-            //scroll to top
-            window.scrollTo(0, 0);
-            console.log('data', characterResponse);
-        });
+        fetchCharacters(currentPage, searchInput).then(handleFetchCharacter);
     }, [currentPage]);
 
+    const handleCharacterSearch = (searchInput: string) => {
+        setSearchInput(searchInput);
+        const newCurrentPage = 1;
+        setCurrentPage(newCurrentPage);
+        fetchCharacters(newCurrentPage, searchInput).then(handleFetchCharacter);
+    };
     return (
         <>
             <Navigation />
+
             <div className="app__content">
-                <CharacterList characters={characters} />
+                <CharacterList characters={characters} handleCharacterSearch={handleCharacterSearch} />
                 <Pagination
                     currentPage={currentPage}
                     onCurrentPageChange={(page: number) => {

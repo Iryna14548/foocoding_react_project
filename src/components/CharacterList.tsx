@@ -1,11 +1,13 @@
 import { Character } from '../components/App';
 import '../styles/CharacterList.css';
+import Search from './Search';
 
 interface CharacterListProps {
     characters: Character[];
+    handleCharacterSearch: (searchInput: string) => void;
 }
 
-export default function CharacterList({ characters }: CharacterListProps) {
+export default function CharacterList({ characters, handleCharacterSearch }: CharacterListProps) {
     return (
         <div className="character-list">
             <h2 className="character-list__title">Character List</h2>
@@ -15,6 +17,7 @@ export default function CharacterList({ characters }: CharacterListProps) {
                 This is a list of characters in the Harry Potter series. They are all characters who have
                 appeared in a Harry Potter-related book by J. K. Rowling.
             </p>
+            <Search handleCharacterSearch={handleCharacterSearch} />
             <ul className="character-list__items">
                 {characters.map((character) => (
                     <li className="character-list__item" key={character.id}>
