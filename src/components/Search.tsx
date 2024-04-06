@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../styles/Search.css';
 
 interface SearchProps {
     handleCharacterSearch: (searchInput: string) => void;
@@ -15,14 +16,15 @@ export default function Search({ handleCharacterSearch }: SearchProps) {
     return (
         <form onSubmit={handleFormSubmit} className="search-form">
             <input
+                className="search-input"
                 type="text"
-                className="search"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
+                placeholder="Search for a character"
             />
-            <button type="submit" className="search-button">
+            {/* <button type="submit" className="search-button">
                 🔎
-            </button>
+            </button> */}
         </form>
     );
 }
