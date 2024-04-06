@@ -12,14 +12,14 @@ const Pagination = ({ currentPage, onCurrentPageChange, amountOfPages }: Paginat
     const paginationNumbers = [];
 
     let startValue = 1;
-    if (currentPage - 2 > 1) {
+    if (currentPage > 3) {
         startValue = currentPage - 2;
         paginationNumbers.push(1);
     }
 
     let endValue = currentPage + 2;
 
-    if (currentPage + 2 > amountOfPages) {
+    if (endValue > amountOfPages) {
         endValue = amountOfPages;
     }
 
@@ -27,12 +27,12 @@ const Pagination = ({ currentPage, onCurrentPageChange, amountOfPages }: Paginat
         paginationNumbers.push(i);
     }
 
-    if (currentPage + 2 < amountOfPages) {
+    if (endValue < amountOfPages) {
         paginationNumbers.push(amountOfPages);
     }
 
     const handlePageChange = () => {
-        const newPageNumber = parseInt(inputPage, 10);
+        const newPageNumber = parseInt(inputPage);
         if (newPageNumber > 0 && newPageNumber <= amountOfPages) {
             onCurrentPageChange(newPageNumber);
         }

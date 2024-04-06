@@ -22,9 +22,6 @@ export default function Search({ handleCharacterSearch }: SearchProps) {
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search for a character"
             />
-            {/* <button type="submit" className="search-button">
-                🔎
-            </button> */}
         </form>
     );
 }
