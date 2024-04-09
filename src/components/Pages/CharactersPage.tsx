@@ -1,18 +1,10 @@
-import { useEffect, useState } from 'react';
-import '../styles/App.css';
-import CharacterList from './CharacterList';
-import { CharacterResponse, fetchCharacters } from '../utils/CharacterUtils';
-import Pagination from './Pagination';
-import Navigation from './Navigation';
+import React, { useEffect, useState } from 'react';
+import CharacterList from '../Characters/CharacterList';
+import Pagination from '../Generic/Pagination';
+import { fetchCharacters } from '../../apI/CharacterAPI';
+import { Character, CharacterResponse } from '../Characters/interfaces';
 
-export interface Character {
-    id: string;
-    image: string;
-    name: string;
-    species: string;
-}
-
-function App() {
+export default function CharactersPage() {
     const [characters, setCharacters] = useState<Character[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [amountOfPages, setAmountOfPages] = useState(0);
@@ -37,20 +29,14 @@ function App() {
     };
     return (
         <>
-            <Navigation />
-
-            <div className="app__content">
-                <CharacterList characters={characters} handleCharacterSearch={handleCharacterSearch} />
-                <Pagination
-                    currentPage={currentPage}
-                    onCurrentPageChange={(page: number) => {
-                        setCurrentPage(page);
-                    }}
-                    amountOfPages={amountOfPages}
-                />
-            </div>
+            <CharacterList characters={characters} handleCharacterSearch={handleCharacterSearch} />
+            <Pagination
+                currentPage={currentPage}
+                onCurrentPageChange={(page: number) => {
+                    setCurrentPage(page);
+                }}
+                amountOfPages={amountOfPages}
+            />
         </>
     );
 }
-
-export default App;

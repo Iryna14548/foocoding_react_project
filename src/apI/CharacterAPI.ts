@@ -1,9 +1,4 @@
-import { Character } from '../components/App';
-
-export interface CharacterResponse {
-    characters: Character[];
-    amountOfPages: number;
-}
+import { Character, CharacterResponse } from '../components/Characters/interfaces';
 
 export const fetchCharacters = async (page: number, searchInput: string) => {
     try {

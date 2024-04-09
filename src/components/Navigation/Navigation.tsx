@@ -1,5 +1,6 @@
-import '../styles/Navigation.css';
-import '../styles/Fonts.css';
+import './Navigation.css';
+import '../../styles/Fonts.css';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Navigation() {
     return (
@@ -25,9 +26,12 @@ export default function Navigation() {
                     </a>
                 </li>
                 <li className="navigation__item">
-                    <a href="#" className="navigation__link">
+                    <NavLink
+                        to="/characters"
+                        className={({ isActive }) => `navigation__link ${isActive ? 'active' : ''}`}
+                    >
                         Characters
-                    </a>
+                    </NavLink>
                 </li>
                 <li className="navigation__item">
                     <a href="#" className="navigation__link">

@@ -8,11 +8,12 @@
 }
 
 body {
-    background-image: url('./../images/hogwarts-legacy-desktop.jpg');
+    background-image: url('../../images/hogwarts-legacy-desktop.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0;
 }
 
 .app__content {

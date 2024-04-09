@@ -57,6 +57,8 @@
     border-radius: 4px;
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
         0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+    cursor: pointer;
 }
 
 .character-list__image {
@@ -78,7 +80,7 @@
 }
 
 .character-list__name {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
     padding: 18px 18px 8px;
     text-align: center;
@@ -86,7 +88,7 @@
 }
 
 .character-list__name:hover {
-    color: #f7e9a8;
+    color: #bdbdbd;
 }
 
 .character-list__species {

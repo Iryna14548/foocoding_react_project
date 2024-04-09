@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/Search.css';
+import './Search.css';
 
 interface SearchProps {
     handleCharacterSearch: (searchInput: string) => void;

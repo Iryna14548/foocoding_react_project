@@ -1,6 +1,6 @@
-import { Character } from '../components/App';
-import '../styles/CharacterList.css';
-import Search from './Search';
+import './CharacterList.css';
+import Search from '../Generic/Search';
+import { Character } from './interfaces';
 
 interface CharacterListProps {
     characters: Character[];
