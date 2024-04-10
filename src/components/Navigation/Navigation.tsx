@@ -1,15 +1,34 @@
 import './Navigation.css';
 import '../../styles/Fonts.css';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function Navigation() {
+    const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+    const handleToggle = () => {
+        setIsNavExpanded(!isNavExpanded);
+    };
+
     return (
         <nav className="navigation">
             <div className="navigation__header">
-                <img src={'../src/images/Harry_Potter.png'} alt="Harry Potter" className="navigation__logo" />
-                <h1 className="navigation__title">Harry Potter WIKI</h1>
+                <div className="navigation-logo--wrapper">
+                    <img
+                        src={'../src/images/Harry_Potter.png'}
+                        alt="Harry Potter"
+                        className="navigation__logo"
+                    />
+                    <h1 className="navigation__title">Harry Potter WIKI</h1>
+                </div>
+                <button className="hamburger" onClick={handleToggle}>
+                    {/* Hamburger Icon */}
+                    <span className="hamburger-line"></span>
+                    <span className="hamburger-line"></span>
+                    <span className="hamburger-line"></span>
+                </button>
             </div>
-            <ul className="navigation__list">
+            <ul className={`navigation__list ${isNavExpanded ? 'expanded' : ''}`}>
                 <li className="navigation__item">
                     <a href="#" className="navigation__link">
                         Home
