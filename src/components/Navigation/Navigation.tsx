@@ -21,7 +21,7 @@ export default function Navigation() {
                     />
                     <h1 className="navigation__title">Harry Potter WIKI</h1>
                 </div>
-                <button className="hamburger" onClick={handleToggle}>
+                <button className={`hamburger ${isNavExpanded ? 'open' : ''}`} onClick={handleToggle}>
                     {/* Hamburger Icon */}
                     <span className="hamburger-line"></span>
                     <span className="hamburger-line"></span>
