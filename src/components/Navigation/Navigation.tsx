@@ -2,18 +2,16 @@ import './Navigation.css';
 import '../../styles/Fonts.css';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import Hamburger from './Hamburger';
 
 export default function Navigation() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
-
-    const handleToggle = () => {
-        setIsNavExpanded(!isNavExpanded);
-    };
 
     return (
         <nav className="navigation">
             <div className="navigation__header">
                 <div className="navigation-logo--wrapper">
+                    {/* Harry Potter Logo */}
                     <img
                         src={'../src/images/Harry_Potter.png'}
                         alt="Harry Potter"
@@ -21,12 +19,7 @@ export default function Navigation() {
                     />
                     <h1 className="navigation__title">Harry Potter WIKI</h1>
                 </div>
-                <button className={`hamburger ${isNavExpanded ? 'open' : ''}`} onClick={handleToggle}>
-                    {/* Hamburger Icon */}
-                    <span className="hamburger-line"></span>
-                    <span className="hamburger-line"></span>
-                    <span className="hamburger-line"></span>
-                </button>
+                <Hamburger isNavExpanded={isNavExpanded} setIsNavExpanded={setIsNavExpanded} />
             </div>
             <ul className={`navigation__list ${isNavExpanded ? 'expanded' : ''}`}>
                 <li className="navigation__item">
