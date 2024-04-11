@@ -3,6 +3,8 @@
     display: flex;
     justify-content: center;
     gap: 2px;
+    margin: 18px 8px;
+    flex-wrap: wrap;
 }
 
 .pagination-button__margin-right {
@@ -37,6 +39,7 @@
 .pagination-input-wrapper {
     display: flex;
     margin-left: 32px;
+    margin-top: 8px;
 }
 
 .pagination-input {
@@ -46,4 +49,7 @@
     padding: 12px;
     margin-left: 18px;
     width: 18px;
+}
+
+@media (min-width: 768px) {
 }
