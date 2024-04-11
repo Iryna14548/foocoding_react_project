@@ -1,18 +1,18 @@
 .search-form {
     display: flex;
     justify-content: right;
-    margin: 0 34px 32px 0;
+    margin: 0 0 32px 0;
     position: relative;
+    justify-content: center;
 }
 
 .search-input {
     font-size: 16px;
     padding: 8px;
-    padding-right: 40px;
     border: 1px solid #c9c9c9;
     border-radius: 4px;
     background-color: rgb(255 255 255 / 60%);
-    background-image: url('/src/images/search.webp');
+    background-image: url(/src/images/search.webp);
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 20px;
@@ -31,4 +31,15 @@
     font-size: 16px;
     padding: 9px 10px;
     cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .search-form {
+        margin: 0 34px 32px 0;
+        justify-content: flex-end;
+    }
+
+    .search-input {
+        padding-right: 40px;
+    }
 }
