@@ -37,6 +37,9 @@
     padding: 18px 8px 18px 8px;
     font-size: 16px;
     font-weight: 400;
+
+    max-width: 450px;
+    margin: 0 auto;
 }
 
 .character-list__item {
@@ -145,7 +148,8 @@
 /* Styles for desktops */
 @media (min-width: 1024px) {
     .character-list__item {
-        flex-basis: calc(50% - 18px);
+        flex-basis: calc(33.3334% - 22px);
+        max-width: none;
     }
 
     .character-list__name {
