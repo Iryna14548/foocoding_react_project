@@ -11,7 +11,7 @@ interface CharacterListProps {
 export default function CharacterList({ characters, handleCharacterSearch }: CharacterListProps) {
     return (
         <div className="character-list">
-            <h2 className="character-list__title">Character List</h2>
+            <h1 className="character-list__title">Character List</h1>
             <h3 className="character-list__subheading">Discover the wizarding world</h3>
 
             <p className="character-list__preamble">

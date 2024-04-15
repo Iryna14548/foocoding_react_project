@@ -5,9 +5,20 @@ const createCharacterObject = (characterDataObject: any): Character => {
 
     const character: Character = {
         id: characterDataObject.id,
-        image: attribute.image,
         name: attribute.name,
-        species: attribute.species,
+        blood_status: attribute.blood_status ?? '',
+        born: attribute.born ?? '',
+        died: attribute.died ?? '',
+        eye_color: attribute.eye_color ?? '',
+        family_members: attribute.family_members ?? [],
+        gender: attribute.gender ?? '',
+        hair_color: attribute.hair_color ?? '',
+        house: attribute.house ?? '',
+        jobs: attribute.jobs ?? [],
+        nationality: attribute.nationality ?? '',
+        species: attribute.species ?? '',
+        image: attribute.image,
+        wiki: attribute.wiki,
     };
 
     return character;

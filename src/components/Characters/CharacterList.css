@@ -86,6 +86,11 @@
     cursor: pointer;
 }
 
+.character-list__image:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out 0s;
+}
+
 .character-list__name {
     font-size: 18px;
     font-weight: 500;
@@ -101,6 +106,7 @@
 .character-list__species {
     text-align: center;
     margin-top: 0;
+    font-size: 16px;
 }
 
 /* Media Queries for Desktop */

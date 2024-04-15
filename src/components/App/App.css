@@ -2,8 +2,9 @@
 #root {
     padding: 1rem; /* Reduced padding for mobile */
     text-align: center;
-    font-family: rubik, helvetica, arial, sans-serif;
     color: white;
+    font-size: 16px;
+    font-family: rubik, helvetica, arial, sans-serif;
 }
 
 body {

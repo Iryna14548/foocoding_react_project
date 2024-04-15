@@ -8,22 +8,21 @@ import CharacterInfo from '../Characters/CharacterInfo';
 
 export default function CharacterPage() {
     const { name } = useParams();
-    const [character, setCharacter] = useState<Character | null>(null);
+    const [characterInfo, setCharacterInfo] = useState<Character | null>(null);
 
     useEffect(() => {
         if (name) {
-            console.log('encodeURIComponent(name)', encodeURIComponent(name));
             fetchCharacter(encodeURIComponent(name)).then((data) => {
-                setCharacter(data);
+                setCharacterInfo(data);
             });
         }
     }, [name]);
 
-    if (!character) return <Loading />;
+    if (!characterInfo) return <Loading />;
 
     return (
         <>
-            <CharacterInfo character={character} />
+            <CharacterInfo characterInfo={characterInfo} />
         </>
     );
 }

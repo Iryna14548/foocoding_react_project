@@ -21,7 +21,7 @@ export default function Navigation() {
                         alt="Harry Potter"
                         className="navigation__logo"
                     />
-                    <h1 className="navigation__title">Harry Potter WIKI</h1>
+                    <h2 className="navigation__title">Harry Potter WIKI</h2>
                 </div>
                 <Hamburger isNavExpanded={isNavExpanded} setIsNavExpanded={setIsNavExpanded} />
             </div>

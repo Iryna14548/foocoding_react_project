@@ -9,6 +9,7 @@ import CharacterPage from '../Pages/CharacterPage';
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<AppRoot />}>
+            <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="characters" element={<CharacterListPage />} />
             <Route path="characters/:name" element={<CharacterPage />} />
