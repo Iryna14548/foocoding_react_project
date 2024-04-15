@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CharacterList from '../Characters/CharacterList';
 import Pagination from '../Generic/Pagination';
-import { fetchCharacters } from '../../apI/CharacterAPI';
+import { fetchCharacters } from '../../api/CharacterAPI';
 import { Character, CharacterResponse } from '../Characters/interfaces';
 
 export default function CharactersPage() {

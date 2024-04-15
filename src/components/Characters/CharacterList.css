@@ -41,6 +41,10 @@
     max-width: 450px;
     margin: 0 auto;
 }
+.character-list__anchor {
+    color: #ffffff;
+    text-decoration: none;
+}
 
 .character-list__item {
     list-style: none;
@@ -49,7 +53,7 @@
     border-radius: 4px;
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
         0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-    cursor: pointer;
+
     max-width: 350px;
 
     width: 100%;
@@ -79,6 +83,7 @@
         0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     padding: 2px;
     background-image: unset;
+    cursor: pointer;
 }
 
 .character-list__name {

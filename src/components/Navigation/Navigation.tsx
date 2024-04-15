@@ -7,6 +7,10 @@ import Hamburger from './Hamburger';
 export default function Navigation() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
 
+    const closeNav = () => {
+        setIsNavExpanded(false);
+    };
+
     return (
         <nav className="navigation">
             <div className="navigation__header">
@@ -23,9 +27,13 @@ export default function Navigation() {
             </div>
             <ul className={`navigation__list ${isNavExpanded ? 'expanded' : ''}`}>
                 <li className="navigation__item">
-                    <a href="#" className="navigation__link">
+                    <NavLink
+                        to="/home"
+                        className={({ isActive }) => `navigation__link ${isActive ? 'active' : ''}`}
+                        onClick={closeNav}
+                    >
                         Home
-                    </a>
+                    </NavLink>
                 </li>
                 <li className="navigation__item">
                     <a href="#" className="navigation__link">
@@ -41,6 +49,7 @@ export default function Navigation() {
                     <NavLink
                         to="/characters"
                         className={({ isActive }) => `navigation__link ${isActive ? 'active' : ''}`}
+                        onClick={closeNav}
                     >
                         Characters
                     </NavLink>
