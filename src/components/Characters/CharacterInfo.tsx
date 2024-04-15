@@ -13,13 +13,13 @@ export default function CharacterInfo({ characterInfo }: CharacterProps) {
             {characterInfo.image && (
                 <img src={characterInfo.image} alt={characterInfo.name} className="character-info__image" />
             )}
+            {characterInfo.gender && (
+                <div className="character-info__detail">
+                    <h3 className="character-info__label">Gender:</h3>
+                    <p className="character-info__text">{characterInfo.gender}</p>
+                </div>
+            )}
             <div>
-                {characterInfo.blood_status && (
-                    <div className="character-info__detail">
-                        <h3 className="character-info__label">Blood Status:</h3>
-                        <p className="character-info__text">{characterInfo.blood_status}</p>
-                    </div>
-                )}
                 {characterInfo.born && (
                     <div className="character-info__detail">
                         <h3 className="character-info__label">Born:</h3>
@@ -32,36 +32,42 @@ export default function CharacterInfo({ characterInfo }: CharacterProps) {
                         <p className="character-info__text">{characterInfo.died}</p>
                     </div>
                 )}
-                {characterInfo.eye_color && (
+
+                {characterInfo.blood_status && (
                     <div className="character-info__detail">
-                        <h3 className="character-info__label">Eye Color:</h3>
-                        <p className="character-info__text">{characterInfo.eye_color}</p>
+                        <h3 className="character-info__label">Blood Status:</h3>
+                        <p className="character-info__text">{characterInfo.blood_status}</p>
                     </div>
                 )}
-                {characterInfo.gender && (
-                    <div className="character-info__detail">
-                        <h3 className="character-info__label">Gender:</h3>
-                        <p className="character-info__text">{characterInfo.gender}</p>
-                    </div>
-                )}
-                {characterInfo.hair_color && (
-                    <div className="character-info__detail">
-                        <h3 className="character-info__label">Hair Color:</h3>
-                        <p className="character-info__text">{characterInfo.hair_color}</p>
-                    </div>
-                )}
+
                 {characterInfo.house && (
                     <div className="character-info__detail">
                         <h3 className="character-info__label">House:</h3>
                         <p className="character-info__text">{characterInfo.house}</p>
                     </div>
                 )}
+
                 {characterInfo.nationality && (
                     <div className="character-info__detail">
                         <h3 className="character-info__label">Nationality:</h3>
                         <p className="character-info__text">{characterInfo.nationality}</p>
                     </div>
                 )}
+
+                {characterInfo.eye_color && (
+                    <div className="character-info__detail">
+                        <h3 className="character-info__label">Eye Color:</h3>
+                        <p className="character-info__text">{characterInfo.eye_color}</p>
+                    </div>
+                )}
+
+                {characterInfo.hair_color && (
+                    <div className="character-info__detail">
+                        <h3 className="character-info__label">Hair Color:</h3>
+                        <p className="character-info__text">{characterInfo.hair_color}</p>
+                    </div>
+                )}
+
                 {characterInfo.species && (
                     <div className="character-info__detail">
                         <h3 className="character-info__label">Species:</h3>

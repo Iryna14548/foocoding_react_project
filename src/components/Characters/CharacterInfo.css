@@ -47,6 +47,11 @@
     padding-left: 16px;
     list-style: none;
 }
+
+.character-info__member,
+.character-info__job {
+    margin-bottom: 6px;
+}
 .character-info__label-wiki {
     color: white;
 }
@@ -55,6 +60,7 @@
     text-decoration: none;
     color: #c7c7c7;
     align-content: center;
+    text-decoration-line: underline;
 }
 
 .character-info__link:hover {
