@@ -13,13 +13,8 @@ export default function CharacterInfo({ characterInfo }: CharacterProps) {
             {characterInfo.image && (
                 <img src={characterInfo.image} alt={characterInfo.name} className="character-info__image" />
             )}
-            {characterInfo.gender && (
-                <div className="character-info__detail">
-                    <h3 className="character-info__label">Gender:</h3>
-                    <p className="character-info__text">{characterInfo.gender}</p>
-                </div>
-            )}
-            <div>
+
+            <div className="character-info__wrapper">
                 {characterInfo.born && (
                     <div className="character-info__detail">
                         <h3 className="character-info__label">Born:</h3>
@@ -32,7 +27,12 @@ export default function CharacterInfo({ characterInfo }: CharacterProps) {
                         <p className="character-info__text">{characterInfo.died}</p>
                     </div>
                 )}
-
+                {characterInfo.gender && (
+                    <div className="character-info__detail">
+                        <h3 className="character-info__label">Gender:</h3>
+                        <p className="character-info__text">{characterInfo.gender}</p>
+                    </div>
+                )}
                 {characterInfo.blood_status && (
                     <div className="character-info__detail">
                         <h3 className="character-info__label">Blood Status:</h3>

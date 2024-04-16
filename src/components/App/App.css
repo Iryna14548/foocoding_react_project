@@ -36,12 +36,12 @@ html {
 
 @media (min-width: 768px) {
     /* Tablet styles */
-}
-
-@media (min-width: 1024px) {
     .app__content {
         background-color: rgb(35 35 35 / 40%);
     }
+}
+
+@media (min-width: 1024px) {
     /* Desktop styles */
     #root {
         max-width: 1400px;
