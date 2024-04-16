@@ -3,7 +3,7 @@
 }
 
 .character-info__detail:nth-child(even) {
-    background-color: rgb(137 137 137 / 40%);
+    background-color: rgb(97 97 97 / 40%);
 }
 
 .character-info__wrapper {

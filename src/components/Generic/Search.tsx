@@ -6,7 +6,7 @@ interface SearchProps {
 }
 
 export default function Search({ handleCharacterSearch }: SearchProps) {
-    const [searchInput, setSearchInput] = useState('');
+    const [searchInput, setSearchInput] = useState(window.history.state?.searchInput ?? '');
 
     const handleFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();

@@ -5,10 +5,10 @@ import { fetchCharacters } from '../../api/CharacterAPI';
 import { Character, CharacterResponse } from '../Characters/interfaces';
 
 export default function CharactersPage() {
-    const [characters, setCharacters] = useState<Character[]>([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [amountOfPages, setAmountOfPages] = useState(0);
-    const [searchInput, setSearchInput] = useState('');
+    const [characters, setCharacters] = useState<Character[]>(window.history.state?.characters ?? []);
+    const [currentPage, setCurrentPage] = useState(window.history.state?.currentPage ?? 1);
+    const [amountOfPages, setAmountOfPages] = useState(window.history.state?.amountOfPages ?? 0);
+    const [searchInput, setSearchInput] = useState(window.history.state?.searchInput ?? '');
 
     const handleFetchCharacter = (characterResponse: CharacterResponse) => {
         setCharacters(characterResponse.characters);
@@ -27,6 +27,20 @@ export default function CharactersPage() {
         setCurrentPage(newCurrentPage);
         fetchCharacters(newCurrentPage, searchInput).then(handleFetchCharacter);
     };
+
+    useEffect(() => {
+        window.history.replaceState(
+            {
+                ...window.history.state,
+                characters,
+                currentPage,
+                amountOfPages,
+                searchInput,
+            },
+            ''
+        );
+    }, [characters, currentPage, amountOfPages, searchInput]);
+
     return (
         <>
             <CharacterList characters={characters} handleCharacterSearch={handleCharacterSearch} />

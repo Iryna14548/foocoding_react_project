@@ -78,8 +78,8 @@ export default function CharacterInfo({ characterInfo }: CharacterProps) {
                     <div className="character-info__detail">
                         <h3 className="character-info__label">Family Members:</h3>
                         <ul className="character-info__text">
-                            {characterInfo.family_members.map((member) => (
-                                <li key={member} className="character-info__member">
+                            {characterInfo.family_members.map((member, index) => (
+                                <li key={index} className="character-info__member">
                                     {member}
                                 </li>
                             ))}
