@@ -5,6 +5,7 @@ import AppRoot from './AppRoot';
 import Home from '../Pages/Home';
 import CharacterListPage from '../Pages/CharacterListPage';
 import CharacterPage from '../Pages/CharacterPage';
+import FavoritesPage from '../Pages/FavoritesPage';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
             <Route path="/home" element={<Home />} />
             <Route path="characters" element={<CharacterListPage />} />
             <Route path="characters/:name" element={<CharacterPage />} />
+            <Route path="favorites" element={<FavoritesPage />} />
         </Route>
     )
 );

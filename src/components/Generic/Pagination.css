@@ -1,9 +1,9 @@
 .pagination {
-    padding-bottom: 48px;
+    padding: 48px;
     display: flex;
     justify-content: center;
     gap: 2px;
-    margin: 18px 8px;
+
     flex-wrap: wrap;
 }
 

@@ -88,6 +88,39 @@ nav a.active {
     border-color: #fffbc6;
 }
 
+.navigation-item-icon {
+    position: relative;
+}
+.navigation-heart__icon {
+    font-size: 26px;
+    font-family: auto;
+    color: white;
+}
+
+.navigation__link .navigation-heart__icon,
+.navigation__link .navigation-heart__icon:hover,
+.navigation__link .navigation-heart__icon:active,
+.navigation__link.active .navigation-heart__icon {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.navigation-heart__count {
+    background-color: #f7e9a8;
+    color: rgb(0, 0, 0);
+    border-radius: 50%;
+    /* padding: 2px; */
+    font-size: 0.75em;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+}
+
 /* Styles for tablets */
 @media (min-width: 768px) {
     .navigation {

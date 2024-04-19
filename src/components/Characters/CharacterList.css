@@ -1,13 +1,9 @@
 /* Mobile-first base styles */
-.character-list {
-    padding: 32px 16px;
-}
 
 .character-list__title {
     padding-top: 32px;
     font-size: 48px;
     font-weight: 600;
-
     font-family: 'HarryPotter-ov4z';
     letter-spacing: 12px;
     color: white;
@@ -57,6 +53,8 @@
     max-width: 350px;
 
     width: 100%;
+
+    position: relative;
 }
 
 .character-list__items {
@@ -111,10 +109,6 @@
 
 /* Media Queries for Desktop */
 @media (min-width: 768px) {
-    .character-list {
-        padding: 64px;
-    }
-
     .character-list__preamble {
         margin: 0 auto 24px;
         font-size: 18px;
@@ -166,4 +160,25 @@
     .character-list__name {
         font-size: 22px;
     }
+}
+
+/* heart icon */
+.heart {
+    font-size: 32px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: absolute;
+    right: 10px;
+}
+
+/* Outlined heart - using Unicode character for heart */
+.heart.outlined::before {
+    content: '\2661'; /* Unicode character for white heart suit */
+    color: white;
+}
+
+/* Filled heart - using Unicode character for heart */
+.heart.filled::before {
+    content: '\2764'; /* Unicode character for heavy black heart */
+    color: #f7e9a8;
 }

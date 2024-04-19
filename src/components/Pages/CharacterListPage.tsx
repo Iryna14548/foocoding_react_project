@@ -3,6 +3,7 @@ import CharacterList from '../Characters/CharacterList';
 import Pagination from '../Generic/Pagination';
 import { fetchCharacters } from '../../api/CharacterAPI';
 import { Character, CharacterResponse } from '../Characters/interfaces';
+import Search from '../Generic/Search';
 
 export default function CharactersPage() {
     const [characters, setCharacters] = useState<Character[]>(window.history.state?.characters ?? []);
@@ -43,7 +44,18 @@ export default function CharactersPage() {
 
     return (
         <>
-            <CharacterList characters={characters} handleCharacterSearch={handleCharacterSearch} />
+            <div className="character-list">
+                <h1 className="character-list__title">Character List</h1>
+                <h3 className="character-list__subheading">Discover the wizarding world</h3>
+
+                <p className="character-list__preamble">
+                    This is a list of characters in the Harry Potter series. They are all characters who have
+                    appeared in a Harry Potter-related book by J. K. Rowling.
+                </p>
+                <Search handleCharacterSearch={handleCharacterSearch} />
+                <CharacterList characters={characters} />
+            </div>
+
             <Pagination
                 currentPage={currentPage}
                 onCurrentPageChange={(page: number) => {

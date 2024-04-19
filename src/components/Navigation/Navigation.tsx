@@ -1,11 +1,13 @@
 import './Navigation.css';
 import '../../styles/Fonts.css';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Hamburger from './Hamburger';
+import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
 
 export default function Navigation() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
+    const { favoriteCharacters } = useContext(FavoriteContext);
 
     const closeNav = () => {
         setIsNavExpanded(false);
@@ -63,6 +65,14 @@ export default function Navigation() {
                     <a href="#" className="navigation__link">
                         Spells
                     </a>
+                </li>
+                <li className="navigation__item navigation-item-icon">
+                    <NavLink to="/favorites" className="navigation__link" onClick={closeNav}>
+                        <span className="navigation-heart__icon"> ♥ </span>
+                        {favoriteCharacters.length > 0 && (
+                            <span className="navigation-heart__count">{favoriteCharacters.length}</span>
+                        )}
+                    </NavLink>
                 </li>
             </ul>
         </nav>

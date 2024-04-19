@@ -1,40 +1,48 @@
 import './CharacterList.css';
-import Search from '../Generic/Search';
 import { Character } from './interfaces';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
 
 interface CharacterListProps {
     characters: Character[];
-    handleCharacterSearch: (searchInput: string) => void;
 }
 
-export default function CharacterList({ characters, handleCharacterSearch }: CharacterListProps) {
-    return (
-        <div className="character-list">
-            <h1 className="character-list__title">Character List</h1>
-            <h3 className="character-list__subheading">Discover the wizarding world</h3>
+export default function CharacterList({ characters }: CharacterListProps) {
+    const { favoriteCharacters, setFavoriteCharacters } = useContext(FavoriteContext);
 
-            <p className="character-list__preamble">
-                This is a list of characters in the Harry Potter series. They are all characters who have
-                appeared in a Harry Potter-related book by J. K. Rowling.
-            </p>
-            <Search handleCharacterSearch={handleCharacterSearch} />
-            <ul className="character-list__items">
-                {characters.map((character) => (
+    const toggleFavorite = (character: Character) => {
+        if (favoriteCharacters.some((fav) => fav.id === character.id)) {
+            setFavoriteCharacters(favoriteCharacters.filter((fav) => fav.id !== character.id));
+        } else {
+            setFavoriteCharacters([...favoriteCharacters, character]);
+        }
+    };
+
+    return (
+        <ul className="character-list__items">
+            {characters.map((character) => {
+                // Determine if the current character is a favorite
+                const isFavorite = favoriteCharacters.some((fav) => fav.id === character.id);
+
+                return (
                     <li className="character-list__item" key={character.id}>
+                        <div
+                            className={`heart ${isFavorite ? 'filled' : 'outlined'}`}
+                            onClick={() => toggleFavorite(character)}
+                        />
                         <Link to={`/characters/${character.name}`} className="character-list__anchor">
                             <img
                                 src={character.image ?? '../src/images/unknown.jpg'}
                                 alt={character.name}
                                 className="character-list__image"
                             />
-
                             <h2 className="character-list__name">{character.name}</h2>
                             <p className="character-list__species">{character.species}</p>
                         </Link>
                     </li>
-                ))}
-            </ul>
-        </div>
+                );
+            })}
+        </ul>
     );
 }
