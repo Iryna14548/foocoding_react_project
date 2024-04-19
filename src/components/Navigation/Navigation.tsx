@@ -18,11 +18,7 @@ export default function Navigation() {
             <div className="navigation__header">
                 <div className="navigation-logo--wrapper">
                     {/* Harry Potter Logo */}
-                    <img
-                        src={'../src/images/Harry_Potter.png'}
-                        alt="Harry Potter"
-                        className="navigation__logo"
-                    />
+                    <img src={'/Harry_Potter.png'} alt="Harry Potter" className="navigation__logo" />
                     <h2 className="navigation__title">Harry Potter WIKI</h2>
                 </div>
                 <Hamburger isNavExpanded={isNavExpanded} setIsNavExpanded={setIsNavExpanded} />
