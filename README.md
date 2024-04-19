@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+# Wizard World Characters
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project provides a web interface to interact with a list of characters from the Wizard World universe. The application allows users to view all characters, mark their favorites, and view detailed information about each character.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To set up the project locally, follow these steps:
 
-## Expanding the ESLint configuration
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Install the required dependencies with `npm install`.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Usage
 
-- Configure the top-level `parserOptions` property like this:
+After installation, you can run the project by executing `npm start`. This will start a development server, and the project will be available at `http://localhost:3000`.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Features
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+-   **Character List**: Displays a list of characters from the Wizard World. Users can click on a character to view more details.
+-   **Favorites**: Users can mark characters as favorites. These are then accessible through the 'My Favorite Characters' page.
+-   **Responsive Design**: The application is fully responsive and works well on both desktop and mobile devices.
+
+## Additional Components
+
+### Pagination
+
+The `Pagination` component allows users to navigate between pages of characters. It displays buttons for moving between pages and an input field for jumping directly to a specific page number.
+
+### Search
+
+The `Search` component provides a search bar for filtering characters. It accepts user input and communicates with the parent component to handle the search operation.
+
+### Hamburger
+
+The `Hamburger` component renders a hamburger icon for mobile navigation. It toggles the visibility of the navigation menu on smaller screens.
+
+### Navigation
+
+The `Navigation` component provides a responsive navigation bar. It uses `NavLink` components from `react-router-dom` to navigate through the application. It also integrates the `Hamburger` component for mobile screens.
+
+## Styles
+
+The components are styled using separate CSS files for each component to keep the styles modular and maintainable.
+
+### File Naming Convention
+
+-   `.tsx` files are TypeScript files containing JSX.
+-   `.css` files are stylesheets associated with the corresponding TypeScript components.
+
+The application entry point is `index.html`, which renders the main React component defined in `App.tsx`. Configuration files like `package.json`, `tsconfig.json`, and others define project settings and TypeScript options.
+
+For more details on specific components and their usage, refer to the source code within each directory.
