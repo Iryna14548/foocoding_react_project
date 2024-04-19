@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CharacterList from '../Characters/CharacterList';
 import Pagination from '../Generic/Pagination';
 import { fetchCharacters } from '../../api/CharacterAPI';

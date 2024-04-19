@@ -8,5 +8,5 @@ interface FavoriteContextValue {
 
 export const FavoriteContext = React.createContext<FavoriteContextValue>({
     favoriteCharacters: [],
-    setFavoriteCharacters: (favorites: Character[]) => {},
+    setFavoriteCharacters: () => {},
 });
