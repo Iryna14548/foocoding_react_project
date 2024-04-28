@@ -1,24 +1,33 @@
 import { useEffect, useState } from 'react';
 import Navigation from '../Navigation/Navigation';
 import { Outlet } from 'react-router-dom';
-import { Character } from '../Characters/interfaces';
+import { Character } from '../Characters/interfacesCharacter';
 import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
+import { Potion } from '../Potions/interfacesPotion';
+import {
+    getFavoriteCharactersFromLocalStorage,
+    getFavoritePotionsFromLocalStorage,
+} from '../context/FavoriteContext/FavoriteUtil';
 
 export default function AppRoot() {
-    const charactersJSON = window.localStorage.getItem('favoriteCharacters');
-    const favoriteCharactersFromLocalStorage = charactersJSON !== null ? JSON.parse(charactersJSON) : [];
-
     const [favoriteCharacters, setFavoriteCharacters] = useState<Character[]>(
-        favoriteCharactersFromLocalStorage
+        getFavoriteCharactersFromLocalStorage()
     );
+    const [favoritePotions, setFavoritePotions] = useState<Potion[]>(getFavoritePotionsFromLocalStorage());
 
     useEffect(() => {
         window.localStorage.setItem('favoriteCharacters', JSON.stringify(favoriteCharacters));
     }, [favoriteCharacters]);
 
+    useEffect(() => {
+        window.localStorage.setItem('favoritePotions', JSON.stringify(favoritePotions));
+    }, [favoritePotions]);
+
     return (
         <>
-            <FavoriteContext.Provider value={{ favoriteCharacters, setFavoriteCharacters }}>
+            <FavoriteContext.Provider
+                value={{ favoriteCharacters, setFavoriteCharacters, favoritePotions, setFavoritePotions }}
+            >
                 <nav>
                     <Navigation />
                 </nav>

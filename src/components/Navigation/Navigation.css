@@ -88,6 +88,11 @@ nav a.active {
     border-color: #fffbc6;
 }
 
+.navigation__link-disable {
+    pointer-events: none;
+    color: #6c6c6c;
+}
+
 .navigation-item-icon {
     position: relative;
 }

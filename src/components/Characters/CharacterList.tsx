@@ -1,5 +1,5 @@
 import './CharacterList.css';
-import { Character } from './interfaces';
+import { Character } from './interfacesCharacter';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';

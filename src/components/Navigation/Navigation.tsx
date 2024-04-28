@@ -7,11 +7,13 @@ import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
 
 export default function Navigation() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
-    const { favoriteCharacters } = useContext(FavoriteContext);
+    const { favoriteCharacters, favoritePotions } = useContext(FavoriteContext);
 
     const closeNav = () => {
         setIsNavExpanded(false);
     };
+
+    const countFavorites = favoriteCharacters.length + favoritePotions.length;
 
     return (
         <nav className="navigation">
@@ -34,12 +36,12 @@ export default function Navigation() {
                     </NavLink>
                 </li>
                 <li className="navigation__item">
-                    <a href="#" className="navigation__link">
+                    <a href="#" className="navigation__link navigation__link-disable">
                         Books
                     </a>
                 </li>
                 <li className="navigation__item">
-                    <a href="#" className="navigation__link">
+                    <a href="#" className="navigation__link navigation__link-disable">
                         Movies
                     </a>
                 </li>
@@ -52,21 +54,27 @@ export default function Navigation() {
                         Characters
                     </NavLink>
                 </li>
+
                 <li className="navigation__item">
-                    <a href="#" className="navigation__link">
+                    <NavLink
+                        to="/potions"
+                        className={({ isActive }) => `navigation__link ${isActive ? 'active' : ''}`}
+                        onClick={closeNav}
+                    >
                         Potions
-                    </a>
+                    </NavLink>
                 </li>
+
                 <li className="navigation__item">
-                    <a href="#" className="navigation__link">
+                    <a href="#" className="navigation__link navigation__link-disable">
                         Spells
                     </a>
                 </li>
                 <li className="navigation__item navigation-item-icon">
                     <NavLink to="/favorites" className="navigation__link" onClick={closeNav}>
                         <span className="navigation-heart__icon"> ♥ </span>
-                        {favoriteCharacters.length > 0 && (
-                            <span className="navigation-heart__count">{favoriteCharacters.length}</span>
+                        {countFavorites > 0 && (
+                            <span className="navigation-heart__count">{countFavorites}</span>
                         )}
                     </NavLink>
                 </li>

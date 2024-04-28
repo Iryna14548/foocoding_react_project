@@ -1,0 +1,63 @@
+.hero__title {
+    padding-top: 32px;
+    font-size: 48px;
+    font-weight: 600;
+    font-family: 'HarryPotter-ov4z';
+    letter-spacing: 12px;
+    color: white;
+    margin: 0;
+}
+
+.hero__subheading {
+    margin: 0 0 32px 0;
+    text-transform: uppercase;
+    position: relative;
+    color: #f7e9a8;
+    font-size: 16px;
+}
+
+.hero__subheading::after {
+    content: '';
+    position: absolute;
+    top: calc(100% + 1.5rem);
+    height: 4px;
+    width: 2rem;
+    background: #ffffff;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+.hero__preamble {
+    padding: 18px 8px 18px 8px;
+    font-size: 16px;
+    font-weight: 400;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+/* Media Queries for Desktop */
+@media (min-width: 768px) {
+    .hero__preamble {
+        margin: 0 auto 24px;
+        font-size: 18px;
+        font-weight: 500;
+        max-width: 860px;
+    }
+
+    .hero__subheading {
+        margin: 0 0 50px 0;
+    }
+
+    .hero__subheading::after {
+        height: 5px;
+        width: 3rem;
+    }
+
+    .hero__title {
+        font-size: 72px;
+    }
+
+    .hero__subheading {
+        font-size: 18px;
+    }
+}

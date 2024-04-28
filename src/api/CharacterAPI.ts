@@ -1,4 +1,4 @@
-import { Character, CharacterResponse } from '../components/Characters/interfaces';
+import { Character, CharacterResponse } from '../components/Characters/interfacesCharacter';
 
 const createCharacterObject = (characterDataObject: any): Character => {
     const attribute = characterDataObject.attributes;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCharacter } from '../../api/CharacterAPI';
-import { Character } from '../Characters/interfaces';
+import { Character } from '../Characters/interfacesCharacter';
 import Loading from '../Generic/Loading';
 
 import CharacterInfo from '../Characters/CharacterInfo';
