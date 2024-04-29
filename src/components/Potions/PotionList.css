@@ -1,5 +1,10 @@
 /* Mobile-first base styles */
 
+.potion-list__anchor {
+    color: #ffffff;
+    text-decoration: none;
+}
+
 .potion-list__item {
     list-style: none;
     background-color: rgb(0 0 0 / 40%);

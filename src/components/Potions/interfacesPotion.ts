@@ -3,6 +3,7 @@ export interface Potion {
     name: string;
     image: string;
     effect: string;
+    wiki: string;
 }
 
 export interface PotionResponse {
