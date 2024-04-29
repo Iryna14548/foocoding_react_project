@@ -66,9 +66,13 @@ export default function Navigation() {
                 </li>
 
                 <li className="navigation__item">
-                    <a href="#" className="navigation__link navigation__link-disable">
+                    <NavLink
+                        to="/spells"
+                        className={({ isActive }) => `navigation__link ${isActive ? 'active' : ''}`}
+                        onClick={closeNav}
+                    >
                         Spells
-                    </a>
+                    </NavLink>
                 </li>
                 <li className="navigation__item navigation-item-icon">
                     <NavLink to="/favorites" className="navigation__link" onClick={closeNav}>

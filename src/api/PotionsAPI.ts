@@ -6,6 +6,10 @@ const createPotionObject = (potionDataObject: any): Potion => {
     const potion: Potion = {
         id: potionDataObject.id,
         name: attribute.name,
+        characteristics: attribute.characteristics,
+        difficulty: attribute.difficulty,
+        ingredients: attribute.ingredients,
+        inventors: attribute.inventors,
         image: attribute.image,
         effect: attribute.effect,
         wiki: attribute.wiki,

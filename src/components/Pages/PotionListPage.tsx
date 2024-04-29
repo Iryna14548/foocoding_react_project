@@ -5,7 +5,7 @@ import { Potion, PotionResponse } from '../Potions/interfacesPotion';
 import Pagination from '../Generic/Pagination';
 import Search from '../Generic/Search';
 
-export default function PotionsPage() {
+export default function PotionPage() {
     const [potions, setPotions] = useState<Potion[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [amountOfPages, setAmountOfPages] = useState(0);

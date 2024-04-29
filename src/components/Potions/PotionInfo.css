@@ -1,20 +1,20 @@
-.character-info__detail:nth-child(odd) {
+.potion-info__detail:nth-child(odd) {
     background-color: rgb(55 55 55 / 40%);
 }
 
-.character-info__detail:nth-child(even) {
+.potion-info__detail:nth-child(even) {
     background-color: rgb(81 74 74 / 40%);
 }
 
-.character-info__wrapper {
+.potion-info__wrapper {
     margin: 0 auto;
     max-width: 900px;
 }
-.character-info {
+.potion-info {
     padding: 0 16px;
 }
 
-.character-info__image {
+.potion-info__image {
     background-color: #a3a3a3;
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     border-radius: 4px;
@@ -25,26 +25,27 @@
     cursor: pointer;
     margin-bottom: 18px;
 }
-.character-info__detail {
+.potion-info__detail {
     display: flex;
 }
 
-.character-info__name {
+.potion-info__name {
     padding: 16px 0 32px 0;
     margin: 0;
 }
 
-.character-info__label {
+.potion-info__label {
     flex-basis: auto;
     color: #f7e9a8;
     width: 40%;
     text-align: left;
-    padding: 0 8px;
     font-size: 16px;
+    padding: 0 8px;
+
     overflow-wrap: break-word;
 }
 
-.character-info__text {
+.potion-info__text {
     flex-basis: auto;
     width: 60%;
     text-align: left;
@@ -53,33 +54,33 @@
     margin: 8px;
 }
 
-.character-info__member,
-.character-info__job {
+.potion-info__member,
+.potion-info__job {
     margin-bottom: 6px;
 }
-.character-info__label-wiki {
+.potion-info__label-wiki {
     color: white;
 }
 
-.character-info__link {
+.potion-info__link {
     text-decoration: none;
     color: #c7c7c7;
     align-content: center;
     text-decoration-line: underline;
 }
 
-.character-info__link:hover {
+.potion-info__link:hover {
     color: #e6e5e5;
 }
 
 /* Media Queries for Desktop */
 @media (min-width: 768px) {
-    .character-info__label {
+    .potion-info__label {
         font-size: 18px;
         padding: 0 16px;
     }
 
-    .character-info__text {
+    .potion-info__text {
         padding: 16px;
     }
 }

@@ -9,10 +9,11 @@ export default function CharacterInfo({ characterInfo }: CharacterProps) {
     return (
         <div className="character-info">
             <h1 className="character-info__name">{characterInfo.name}</h1>
-            {characterInfo.image && (
-                <img src={characterInfo.image} alt={characterInfo.name} className="character-info__image" />
-            )}
-
+            <img
+                src={characterInfo.image ?? '../src/images/unknown.jpg'}
+                alt={characterInfo.name}
+                className="character-list__image"
+            />
             <div className="character-info__wrapper">
                 {characterInfo.born && (
                     <div className="character-info__detail">
