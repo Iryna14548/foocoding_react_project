@@ -1,5 +1,21 @@
+import { useEffect, useState } from 'react';
+import BookList from '../Books/BookList';
+import { Book, BookResponse } from '../Books/interfacesBook';
+import { fetchBooks } from '../../api/BooksAPI';
+
 export default function BooksPage() {
-    // const [books, setBooks] = useState<Spell[]>([]);
+    const [books, setBooks] = useState<Book[]>([]);
+
+    const handleFetchBooks = (bookResponse: BookResponse) => {
+        setBooks(bookResponse.books);
+
+        //scroll to top
+        window.scrollTo(0, 0);
+    };
+
+    useEffect(() => {
+        fetchBooks().then(handleFetchBooks);
+    }, []);
 
     return (
         <>
@@ -12,7 +28,7 @@ export default function BooksPage() {
                     friendship!
                 </p>
 
-                {/* <SpellList spells={spells} /> */}
+                <BookList books={books} />
             </div>
         </>
     );
