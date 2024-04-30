@@ -56,7 +56,7 @@ export default function CharactersPage() {
                     extraordinary world's rich tapestry. Go on a trip through the wonders of the magical
                     world, and discover the full spectrum of its inhabitants!
                 </p>
-                <Search handleCharacterSearch={handleCharacterSearch} />
+                <Search handleSearch={handleCharacterSearch} />
                 <CharacterList characters={characters} />
             </div>
 

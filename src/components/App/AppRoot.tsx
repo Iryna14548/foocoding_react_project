@@ -7,13 +7,17 @@ import { Potion } from '../Potions/interfacesPotion';
 import {
     getFavoriteCharactersFromLocalStorage,
     getFavoritePotionsFromLocalStorage,
+    getFavoriteSpellsFromLocalStorage,
 } from '../context/FavoriteContext/FavoriteUtil';
+import { Spell } from '../../Spells/interfacesSpell';
 
 export default function AppRoot() {
     const [favoriteCharacters, setFavoriteCharacters] = useState<Character[]>(
         getFavoriteCharactersFromLocalStorage()
     );
     const [favoritePotions, setFavoritePotions] = useState<Potion[]>(getFavoritePotionsFromLocalStorage());
+
+    const [favoriteSpells, setFavoriteSpells] = useState<Spell[]>(getFavoriteSpellsFromLocalStorage());
 
     useEffect(() => {
         window.localStorage.setItem('favoriteCharacters', JSON.stringify(favoriteCharacters));
@@ -23,10 +27,21 @@ export default function AppRoot() {
         window.localStorage.setItem('favoritePotions', JSON.stringify(favoritePotions));
     }, [favoritePotions]);
 
+    useEffect(() => {
+        window.localStorage.setItem('favoriteSpells', JSON.stringify(favoriteSpells));
+    }, [favoriteSpells]);
+
     return (
         <>
             <FavoriteContext.Provider
-                value={{ favoriteCharacters, setFavoriteCharacters, favoritePotions, setFavoritePotions }}
+                value={{
+                    favoriteCharacters,
+                    setFavoriteCharacters,
+                    favoritePotions,
+                    setFavoritePotions,
+                    favoriteSpells,
+                    setFavoriteSpells,
+                }}
             >
                 <nav>
                     <Navigation />

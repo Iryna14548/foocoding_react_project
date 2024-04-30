@@ -33,6 +33,7 @@ const Pagination = ({ currentPage, onCurrentPageChange, amountOfPages }: Paginat
 
     const handlePageChange = () => {
         const newPageNumber = parseInt(inputPage);
+
         if (newPageNumber > 0 && newPageNumber <= amountOfPages) {
             onCurrentPageChange(newPageNumber);
         }

@@ -36,14 +36,22 @@ export default function Navigation() {
                     </NavLink>
                 </li>
                 <li className="navigation__item">
-                    <a href="#" className="navigation__link navigation__link-disable">
+                    <NavLink
+                        to="/books"
+                        className={({ isActive }) => `navigation__link ${isActive ? 'active' : ''}`}
+                        onClick={closeNav}
+                    >
                         Books
-                    </a>
+                    </NavLink>
                 </li>
                 <li className="navigation__item">
-                    <a href="#" className="navigation__link navigation__link-disable">
+                    <NavLink
+                        to="/movies"
+                        className={({ isActive }) => `navigation__link ${isActive ? 'active' : ''}`}
+                        onClick={closeNav}
+                    >
                         Movies
-                    </a>
+                    </NavLink>
                 </li>
                 <li className="navigation__item">
                     <NavLink

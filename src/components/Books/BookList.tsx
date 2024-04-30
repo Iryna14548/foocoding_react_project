@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
-import { Potion } from './interfacesPotion';
+
 import './PotionList.css';
 import { Link } from 'react-router-dom';
 
 interface PotionListProps {
-    potions: Potion[];
+    books: Book[];
 }
 
-export default function PotionList({ potions }: PotionListProps) {
+export default function BookList({ potions }: PotionListProps) {
     const { favoritePotions, setFavoritePotions } = useContext(FavoriteContext);
 
     const toggleFavorite = (potion: Potion) => {

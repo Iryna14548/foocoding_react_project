@@ -1,3 +1,4 @@
+import { Spell } from '../../../Spells/interfacesSpell';
 import { Character } from '../../Characters/interfacesCharacter';
 import { Potion } from '../../Potions/interfacesPotion';
 
@@ -11,4 +12,10 @@ export const getFavoritePotionsFromLocalStorage = (): Potion[] => {
     const potionsJSON = window.localStorage.getItem('favoritePotions');
     const favoritePotionsFromLocalStorage = potionsJSON !== null ? JSON.parse(potionsJSON) : [];
     return favoritePotionsFromLocalStorage;
+};
+
+export const getFavoriteSpellsFromLocalStorage = (): Spell[] => {
+    const spellsJSON = window.localStorage.getItem('favoriteSpells');
+    const favoriteSpellsFromLocalStorage = spellsJSON !== null ? JSON.parse(spellsJSON) : [];
+    return favoriteSpellsFromLocalStorage;
 };

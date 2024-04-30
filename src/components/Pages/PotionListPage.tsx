@@ -40,7 +40,7 @@ export default function PotionPage() {
                     the amazing powers of these special drinks that have sparked so much excitement and
                     mystery. Learn about the different potions and what they do in the wizarding world!
                 </p>
-                <Search handleCharacterSearch={handlePotionSearch} />
+                <Search handleSearch={handlePotionSearch} />
                 <PotionList potions={potions} />
             </div>
             <Pagination

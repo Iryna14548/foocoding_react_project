@@ -5,7 +5,7 @@ import { Potion } from '../Potions/interfacesPotion';
 import { fetchPotion } from '../../api/PotionsAPI';
 import PotionInfo from '../Potions/PotionInfo';
 
-export default function CharacterPage() {
+export default function PotionPage() {
     const { name } = useParams();
     const [potionInfo, setPotionInfo] = useState<Potion | null>(null);
 
