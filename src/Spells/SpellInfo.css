@@ -24,6 +24,7 @@
     background-image: unset;
     cursor: pointer;
     margin-bottom: 18px;
+    max-width: 250px;
 }
 .spell-info__detail {
     display: flex;

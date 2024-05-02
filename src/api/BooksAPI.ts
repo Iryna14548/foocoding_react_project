@@ -44,30 +44,30 @@ export const fetchBooks = async () => {
     }
 };
 
-// export const fetchSpell = async (name: string) => {
-//     try {
-//         const response = await fetch(
-//             `https://api.potterdb.com//v1/spells?
-//             filter[name_i_cont_all][]=${name}&
-//             page[size]=12`
-//                 .trim()
-//                 .replace(/\s/g, '')
-//         );
-//         if (!response.ok) {
-//             throw new Error(`HTTP error: Status ${response.status}`);
-//         }
+export const fetchBook = async (title: string) => {
+    try {
+        const response = await fetch(
+            `https://api.potterdb.com//v1/books?
+            filter[name_i_cont_all][]=${title}&
+            page[size]=12`
+                .trim()
+                .replace(/\s/g, '')
+        );
+        if (!response.ok) {
+            throw new Error(`HTTP error: Status ${response.status}`);
+        }
 
-//         const data = await response.json();
+        const data = await response.json();
 
-//         const dataSpell = data.data[0];
+        const dataBook = data.data[0];
 
-//         if (dataSpell) {
-//             return createSpellObject(dataSpell);
-//         } else {
-//             return null;
-//         }
-//     } catch (error) {
-//         console.error('Failed to fetch or parse data:', error);
-//         return null;
-//     }
-// };
+        if (dataBook) {
+            return createBookObject(dataBook);
+        } else {
+            return null;
+        }
+    } catch (error) {
+        console.error('Failed to fetch or parse data:', error);
+        return null;
+    }
+};

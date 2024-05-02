@@ -13,7 +13,7 @@ export default function PotionInfo({ potionInfo }: PotionProps) {
             <img
                 src={potionInfo.image ?? '../src/images/potion.jpg'}
                 alt={potionInfo.name}
-                className="potion-list__image"
+                className="potion-info__image"
             />
             {potionInfo.name && (
                 <div className="potion-info__detail">

@@ -7,13 +7,15 @@ import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
 
 export default function Navigation() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
-    const { favoriteCharacters, favoritePotions } = useContext(FavoriteContext);
+    const { favoriteCharacters, favoritePotions, favoriteSpells, favoriteBooks } =
+        useContext(FavoriteContext);
 
     const closeNav = () => {
         setIsNavExpanded(false);
     };
 
-    const countFavorites = favoriteCharacters.length + favoritePotions.length;
+    const countFavorites =
+        favoriteCharacters.length + favoritePotions.length + favoriteSpells.length + favoriteBooks.length;
 
     return (
         <nav className="navigation">

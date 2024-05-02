@@ -1,4 +1,5 @@
 import { Spell } from '../../../Spells/interfacesSpell';
+import { Book } from '../../Books/interfacesBook';
 import { Character } from '../../Characters/interfacesCharacter';
 import { Potion } from '../../Potions/interfacesPotion';
 
@@ -18,4 +19,10 @@ export const getFavoriteSpellsFromLocalStorage = (): Spell[] => {
     const spellsJSON = window.localStorage.getItem('favoriteSpells');
     const favoriteSpellsFromLocalStorage = spellsJSON !== null ? JSON.parse(spellsJSON) : [];
     return favoriteSpellsFromLocalStorage;
+};
+
+export const getFavoriteBooksFromLocalStorage = (): Book[] => {
+    const booksJSON = window.localStorage.getItem('favoriteBooks');
+    const favoriteBooksFromLocalStorage = booksJSON !== null ? JSON.parse(booksJSON) : [];
+    return favoriteBooksFromLocalStorage;
 };

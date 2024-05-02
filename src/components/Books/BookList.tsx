@@ -1,28 +1,40 @@
 import { Book } from './interfacesBook';
 import './BookList.css';
+import { useContext } from 'react';
+import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
+import { Link } from 'react-router-dom';
 
 interface PotionListProps {
     books: Book[];
 }
 
 export default function BookList({ books }: PotionListProps) {
+    const { favoriteBooks, setFavoriteBooks } = useContext(FavoriteContext);
+
+    const toggleFavorite = (book: Book) => {
+        if (favoriteBooks.some((fav) => fav.id === book.id)) {
+            setFavoriteBooks(favoriteBooks.filter((fav) => fav.id !== book.id));
+        } else {
+            setFavoriteBooks([...favoriteBooks, book]);
+        }
+    };
+
     return (
         <ul className="book-list__items">
             {books.map((book) => {
-                // // Determine if the current potion is a favorite
-                // const isFavorite = favoritePotions.some((fav) => fav.id === potion.id);
+                // Determine if the current potion is a favorite
+                const isFavorite = favoriteBooks.some((fav) => fav.id === book.id);
 
                 return (
                     <li className="book-list__item" key={book.id}>
-                        {/* <div
+                        <div
                             className={`heart ${isFavorite ? 'filled' : 'outlined'}`}
-                            onClick={() => toggleFavorite(potion)}
-                        /> */}
-                        {/* <Link to={`/books/${book.title}`} className="potion-list__anchor"> */}
-                        <img src={book.cover} alt={book.title} className="book-list__image" />
-                        <h2 className="book-list__name">{book.title}</h2>
-                        {/* <p className="potion-list__effect">{book.effect ?? 'Potion'}</p> */}
-                        {/* </Link> */}
+                            onClick={() => toggleFavorite(book)}
+                        />
+                        <Link to={`/books/${book.title}`} className="potion-list__anchor">
+                            <img src={book.cover} alt={book.title} className="book-list__image" />
+                            <h2 className="book-list__name">{book.title}</h2>
+                        </Link>
                     </li>
                 );
             })}

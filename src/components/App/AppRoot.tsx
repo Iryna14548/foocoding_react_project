@@ -5,11 +5,13 @@ import { Character } from '../Characters/interfacesCharacter';
 import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
 import { Potion } from '../Potions/interfacesPotion';
 import {
+    getFavoriteBooksFromLocalStorage,
     getFavoriteCharactersFromLocalStorage,
     getFavoritePotionsFromLocalStorage,
     getFavoriteSpellsFromLocalStorage,
 } from '../context/FavoriteContext/FavoriteUtil';
 import { Spell } from '../../Spells/interfacesSpell';
+import { Book } from '../Books/interfacesBook';
 
 export default function AppRoot() {
     const [favoriteCharacters, setFavoriteCharacters] = useState<Character[]>(
@@ -18,6 +20,8 @@ export default function AppRoot() {
     const [favoritePotions, setFavoritePotions] = useState<Potion[]>(getFavoritePotionsFromLocalStorage());
 
     const [favoriteSpells, setFavoriteSpells] = useState<Spell[]>(getFavoriteSpellsFromLocalStorage());
+
+    const [favoriteBooks, setFavoriteBooks] = useState<Book[]>(getFavoriteBooksFromLocalStorage());
 
     useEffect(() => {
         window.localStorage.setItem('favoriteCharacters', JSON.stringify(favoriteCharacters));
@@ -31,6 +35,10 @@ export default function AppRoot() {
         window.localStorage.setItem('favoriteSpells', JSON.stringify(favoriteSpells));
     }, [favoriteSpells]);
 
+    useEffect(() => {
+        window.localStorage.setItem('favoriteBooks', JSON.stringify(favoriteBooks));
+    }, [favoriteBooks]);
+
     return (
         <>
             <FavoriteContext.Provider
@@ -41,6 +49,8 @@ export default function AppRoot() {
                     setFavoritePotions,
                     favoriteSpells,
                     setFavoriteSpells,
+                    favoriteBooks,
+                    setFavoriteBooks,
                 }}
             >
                 <nav>

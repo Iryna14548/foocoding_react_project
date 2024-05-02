@@ -13,7 +13,7 @@ export default function SpellInfo({ spellInfo }: SpellProps) {
             <img
                 src={spellInfo.image ?? '../src/images/Spell_Icon.jpg'}
                 alt={spellInfo.name}
-                className="potion-list__image"
+                className="spell-info__image "
             />
             {spellInfo.name && (
                 <div className="potion-info__detail">

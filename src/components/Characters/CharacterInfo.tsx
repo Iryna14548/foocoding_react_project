@@ -12,7 +12,7 @@ export default function CharacterInfo({ characterInfo }: CharacterProps) {
             <img
                 src={characterInfo.image ?? '../src/images/unknown.jpg'}
                 alt={characterInfo.name}
-                className="character-list__image"
+                className="character-info__image"
             />
             <div className="character-info__wrapper">
                 {characterInfo.born && (
