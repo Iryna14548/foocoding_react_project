@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Loading from '../Generic/Loading';
 import { Book } from '../Books/interfacesBook';
 import { fetchBook } from '../../api/BooksAPI';
-import BookInfo from '../Books/BooksInfo';
+import BookInfo from '../Books/BookInfo';
 
 export default function BookPage() {
     const { title } = useParams();

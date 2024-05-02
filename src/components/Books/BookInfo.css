@@ -1,20 +1,20 @@
-.potion-info__detail:nth-child(odd) {
+.book-info__detail:nth-child(odd) {
     background-color: rgb(55 55 55 / 40%);
 }
 
-.potion-info__detail:nth-child(even) {
+.book-info__detail:nth-child(even) {
     background-color: rgb(81 74 74 / 40%);
 }
 
-.potion-info__wrapper {
+.book-info__wrapper {
     margin: 0 auto;
     max-width: 900px;
 }
-.potion-info {
+.book-info {
     padding: 0 16px;
 }
 
-.potion-info__image {
+.book-info__image {
     background-color: #a3a3a3;
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     border-radius: 4px;
@@ -23,19 +23,23 @@
     padding: 2px;
     background-image: unset;
     cursor: pointer;
-    margin-bottom: 18px;
-    max-width: 250potion-list__imagepx;
+    margin: 18px 0;
+    max-width: 250px;
 }
-.potion-info__detail {
+
+.book-info-header__details {
+}
+
+.book-info__detail {
     display: flex;
 }
 
-.potion-info__name {
+.book-info__name {
     padding: 16px 0 32px 0;
     margin: 0;
 }
 
-.potion-info__label {
+.book-info__label {
     flex-basis: auto;
     color: #f7e9a8;
     width: 40%;
@@ -46,7 +50,7 @@
     overflow-wrap: break-word;
 }
 
-.potion-info__text {
+.book-info__text {
     flex-basis: auto;
     width: 60%;
     text-align: left;
@@ -55,38 +59,43 @@
     margin: 8px;
 }
 
-.potion-info__member,
-.potion-info__job {
+.book-info__member,
+.book-info__job {
     margin-bottom: 6px;
 }
-.potion-info__label-wiki {
+.book-info__label-wiki {
     color: white;
 }
 
-.potion-info__link {
+.book-info__link {
     text-decoration: none;
     color: #c7c7c7;
     align-content: center;
     text-decoration-line: underline;
 }
 
-.potion-info__link:hover {
+.book-info__link:hover {
     color: #e6e5e5;
 }
 
 /* Media Queries for Desktop */
 @media (min-width: 768px) {
-    .potion-info__label {
+    .book-info-header__details {
+        display: flex;
+        gap: 32px;
+        justify-content: space-around;
+    }
+    .book-info__label {
         font-size: 18px;
         padding: 0 16px;
     }
 
-    .potion-info__text {
+    .book-info__text {
         padding: 16px;
         font-size: 18px;
     }
 
-    .potion-info__link {
+    .book-info__link {
         font-size: 18px;
     }
 }

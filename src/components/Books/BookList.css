@@ -31,7 +31,7 @@
 }
 
 .book-list__image {
-    height: 150px;
+    height: 233px;
     width: 150px;
     margin: 0 auto;
 
@@ -81,15 +81,15 @@
     .book-list__items {
         flex-wrap: wrap;
         gap: 32px;
-        padding: 0 32px;
+        padding: 0px 16px;
         flex-direction: row;
         align-items: normal;
         justify-content: left;
     }
 
     .book-list__image {
-        height: 380px;
-        width: 246px;
+        height: 350px;
+        width: 227px;
     }
 }
 

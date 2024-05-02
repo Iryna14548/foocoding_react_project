@@ -81,5 +81,10 @@
 
     .character-info__text {
         padding: 16px;
+        font-size: 18px;
+    }
+
+    .character-info__link {
+        font-size: 18px;
     }
 }

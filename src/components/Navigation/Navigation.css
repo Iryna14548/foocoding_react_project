@@ -95,6 +95,7 @@ nav a.active {
 
 .navigation-item-icon {
     position: relative;
+    display: flex;
 }
 .navigation-heart__icon {
     font-size: 26px;

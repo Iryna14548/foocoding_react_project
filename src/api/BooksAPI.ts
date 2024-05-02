@@ -5,8 +5,13 @@ const createBookObject = (bookDataObject: any): Book => {
 
     const book: Book = {
         id: bookDataObject.id,
+        summary: attribute.summary,
         title: attribute.title,
+        author: attribute.author,
+        release_date: attribute.release_date,
+        dedication: attribute.dedication,
         cover: attribute.cover,
+        pages: attribute.pages,
         wiki: attribute.wiki,
     };
 

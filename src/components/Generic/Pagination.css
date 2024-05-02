@@ -8,11 +8,11 @@
 }
 
 .pagination-button__margin-right {
-    margin-right: 18px;
+    display: none;
 }
 
 .pagination-button__margin-left {
-    margin-left: 18px;
+    display: none;
 }
 
 .pagination-button {
@@ -54,5 +54,14 @@
 @media (min-width: 768px) {
     .pagination-input-wrapper {
         margin-top: 0;
+    }
+    .pagination-button__margin-right {
+        margin-right: 18px;
+        display: inline-block;
+    }
+
+    .pagination-button__margin-left {
+        margin-left: 18px;
+        display: inline-block;
     }
 }
