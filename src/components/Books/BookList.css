@@ -84,7 +84,7 @@
         padding: 0px 16px;
         flex-direction: row;
         align-items: normal;
-        justify-content: left;
+        justify-content: center;
     }
 
     .book-list__image {
@@ -94,7 +94,7 @@
 }
 
 /* Styles for desktops */
-@media (min-width: 1024px) {
+@media (min-width: 1220px) {
     .book-list__item {
         flex-basis: calc(33.3334% - 22px);
 

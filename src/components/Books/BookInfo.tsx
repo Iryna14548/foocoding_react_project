@@ -16,7 +16,8 @@ export default function BookInfo({ bookInfo }: BookProps) {
                     alt={bookInfo.title}
                     className="book-info__image "
                 />
-                {bookInfo.summary && <p className="book-info__text">{bookInfo.summary}</p>}
+
+                {bookInfo.summary && <p className="book-info__text initial-letter">{bookInfo.summary}</p>}
             </div>
 
             {bookInfo.title && (
