@@ -4,6 +4,7 @@ import { Spell, SpellResponse } from '../../Spells/interfacesSpell';
 import SpellList from '../../Spells/SpellList';
 import Pagination from '../Generic/Pagination';
 import Search from '../Generic/Search';
+import '../../Styles/Hero.css';
 
 export default function SpellsPage() {
     const [spells, setSpells] = useState<Spell[]>([]);

@@ -1,3 +1,5 @@
+import '../../Styles/Hero.css';
+
 export default function Home() {
     return (
         <div>

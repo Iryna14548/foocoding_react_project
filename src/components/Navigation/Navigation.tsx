@@ -1,5 +1,5 @@
 import './Navigation.css';
-import '../../styles/Fonts.css';
+import '../../Styles/Fonts.css';
 import { NavLink } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import Hamburger from './Hamburger';

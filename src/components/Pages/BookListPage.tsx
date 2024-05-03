@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import BookList from '../Books/BookList';
 import { Book, BookResponse } from '../Books/interfacesBook';
 import { fetchBooks } from '../../api/BooksAPI';
+import '../../Styles/Hero.css';
 
 export default function BooksPage() {
     const [books, setBooks] = useState<Book[]>([]);

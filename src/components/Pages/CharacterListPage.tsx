@@ -4,7 +4,7 @@ import Pagination from '../Generic/Pagination';
 import { fetchCharacters } from '../../api/CharacterAPI';
 import { Character, CharacterResponse } from '../Characters/interfacesCharacter';
 import Search from '../Generic/Search';
-import '../Generic/Hero.css';
+import '../../Styles/Hero.css';
 
 export default function CharactersPage() {
     const [characters, setCharacters] = useState<Character[]>(window.history.state?.characters ?? []);

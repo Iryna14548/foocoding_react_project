@@ -4,6 +4,7 @@ import { fetchPotions } from '../../api/PotionsAPI';
 import { Potion, PotionResponse } from '../Potions/interfacesPotion';
 import Pagination from '../Generic/Pagination';
 import Search from '../Generic/Search';
+import '../../Styles/Hero.css';
 
 export default function PotionPage() {
     const [potions, setPotions] = useState<Potion[]>([]);

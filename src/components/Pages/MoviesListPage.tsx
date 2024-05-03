@@ -1,3 +1,5 @@
+import '../../Styles/Hero.css';
+
 export default function MoviesPage() {
     // const [books, setBooks] = useState<Spell[]>([]);
 
