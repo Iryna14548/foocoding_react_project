@@ -1,8 +1,22 @@
+import { useEffect, useState } from 'react';
 import '../../Styles/Hero.css';
+import { fetchMovies } from '../../api/Movie';
+import { Movie, MovieResponse } from '../Movies/interfacesBook';
+import MovieList from '../Movies/MovieList';
 
 export default function MoviesPage() {
-    // const [books, setBooks] = useState<Spell[]>([]);
+    const [movies, setMovies] = useState<Movie[]>([]);
 
+    const handleFetchMovies = (movieResponse: MovieResponse) => {
+        setMovies(movieResponse.movies);
+
+        //scroll to top
+        window.scrollTo(0, 0);
+    };
+
+    useEffect(() => {
+        fetchMovies().then(handleFetchMovies);
+    }, []);
     return (
         <>
             <div>
@@ -14,7 +28,7 @@ export default function MoviesPage() {
                     world. Watch the adventures unfold.
                 </p>
 
-                {/* <SpellList spells={spells} /> */}
+                <MovieList movies={movies} />
             </div>
         </>
     );

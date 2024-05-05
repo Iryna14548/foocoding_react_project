@@ -1,0 +1,103 @@
+/* Mobile-first base styles */
+
+.book-list__anchor {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.book-list__item {
+    list-style: none;
+    background-color: rgb(0 0 0 / 40%);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+    max-width: 350px;
+
+    width: 100%;
+
+    position: relative;
+}
+
+.book-list__items {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+    padding: 0 16px; /* Adjusted for mobile */
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+}
+
+.book-list__image {
+    height: 233px;
+    width: 150px;
+    margin: 0 auto;
+
+    margin-top: 18px;
+    background-color: #a3a3a3;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    padding: 2px;
+    background-image: unset;
+    cursor: pointer;
+    object-fit: cover;
+    object-position: top;
+}
+
+.book-list__image:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out 0s;
+}
+
+.book-list__name {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 18px 18px 18px;
+    text-align: center;
+    margin: 0;
+}
+
+.book-list__name:hover {
+    color: #bdbdbd;
+}
+
+.book-list__effect {
+    text-align: center;
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 340px;
+    padding-bottom: 18px;
+}
+/* Media Queries for Desktop */
+@media (min-width: 768px) {
+    .book-list__item {
+        flex-basis: calc(50% - 18px);
+    }
+
+    .book-list__items {
+        flex-wrap: wrap;
+        gap: 32px;
+        padding: 0px 16px;
+        flex-direction: row;
+        align-items: normal;
+        justify-content: center;
+    }
+
+    .book-list__image {
+        height: 350px;
+        width: 227px;
+    }
+}
+
+/* Styles for desktops */
+@media (min-width: 1220px) {
+    .book-list__item {
+        flex-basis: calc(33.3334% - 22px);
+
+        max-width: none;
+    }
+}

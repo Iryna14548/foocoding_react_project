@@ -13,6 +13,7 @@ import PotionListPage from '../Pages/PotionListPage';
 import BookListPage from '../Pages/BookListPage';
 import MoviesListPage from '../Pages/MoviesListPage';
 import BookPage from '../Pages/BookPage';
+import MoviePage from '../Pages/MoviePage';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
             <Route path="books" element={<BookListPage />} />
             <Route path="books/:title" element={<BookPage />} />
             <Route path="movies" element={<MoviesListPage />} />
+            <Route path="movies/:title" element={<MoviePage />} />
             <Route path="characters" element={<CharacterListPage />} />
             <Route path="characters/:name" element={<CharacterPage />} />
             <Route path="potions" element={<PotionListPage />} />

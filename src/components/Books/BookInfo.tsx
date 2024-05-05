@@ -11,11 +11,7 @@ export default function BookInfo({ bookInfo }: BookProps) {
             <h1 className="book-info__name">{bookInfo.title}</h1>
 
             <div className="book-info-header__details book-info__detail">
-                <img
-                    src={bookInfo.cover ?? '../src/images/potion.jpg'}
-                    alt={bookInfo.title}
-                    className="book-info__image "
-                />
+                <img src={bookInfo.cover} alt={bookInfo.title} className="book-info__image " />
 
                 {bookInfo.summary && <p className="book-info__text initial-letter">{bookInfo.summary}</p>}
             </div>
