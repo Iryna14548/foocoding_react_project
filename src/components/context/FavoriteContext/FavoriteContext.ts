@@ -3,6 +3,7 @@ import { Character } from '../../Characters/interfacesCharacter';
 import { Potion } from '../../Potions/interfacesPotion';
 import { Spell } from '../../../Spells/interfacesSpell';
 import { Book } from '../../Books/interfacesBook';
+import { Movie } from '../../Movies/interfacesBook';
 
 interface FavoriteContextValue {
     favoriteCharacters: Character[];
@@ -13,6 +14,8 @@ interface FavoriteContextValue {
     setFavoriteSpells: (favorites: Spell[]) => void;
     favoriteBooks: Book[];
     setFavoriteBooks: (favorites: Book[]) => void;
+    favoriteMovies: Movie[];
+    setFavoriteMovies: (favorites: Movie[]) => void;
 }
 
 export const FavoriteContext = React.createContext<FavoriteContextValue>({
@@ -24,4 +27,6 @@ export const FavoriteContext = React.createContext<FavoriteContextValue>({
     setFavoriteSpells: () => {},
     favoriteBooks: [],
     setFavoriteBooks: () => {},
+    favoriteMovies: [],
+    setFavoriteMovies: () => {},
 });

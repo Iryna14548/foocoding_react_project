@@ -1,0 +1,137 @@
+.movie-info__detail:nth-child(odd) {
+    background-color: rgb(55 55 55 / 40%);
+}
+
+.movie-info__detail:nth-child(even) {
+    background-color: rgb(81 74 74 / 40%);
+}
+
+.movie-info__wrapper {
+    margin: 0 auto;
+    max-width: 900px;
+}
+.movie-info {
+    padding: 0 16px;
+}
+
+.movie-info__image {
+    background-color: #a3a3a3;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    padding: 2px;
+    background-image: unset;
+    cursor: pointer;
+    margin: 18px 0;
+    max-width: 250px;
+}
+
+.movie-info__detail {
+    display: flex;
+    gap: 32px;
+}
+
+.movie-info-header__details {
+    display: block;
+}
+
+.movie-info-trailer {
+    margin: 24px;
+    display: block;
+    color: #f7e9a8;
+    text-decoration: underline;
+    text-align: center;
+}
+.movie-info__name {
+    padding: 16px 0 32px 0;
+    margin: 0;
+}
+
+.movie-info__label {
+    flex-basis: auto;
+    color: #f7e9a8;
+    width: 40%;
+    text-align: left;
+    font-size: 16px;
+    padding: 0 8px;
+
+    overflow-wrap: break-word;
+}
+
+.movie-info__text {
+    flex-basis: auto;
+    text-align: left;
+    padding: 8px;
+    list-style: none;
+    margin: 8px;
+}
+
+.initial-letter::first-letter {
+    float: left;
+    font-size: 42px;
+    line-height: 34px;
+    padding-right: 8px;
+    color: #f7e9a8;
+    font-family: 'HarryPotter-ov4z';
+    padding-top: 18px;
+}
+
+.movie-info__member,
+.movie-info__job {
+    margin-bottom: 6px;
+}
+.movie-info__label-wiki {
+    color: white;
+}
+
+.movie-info__link {
+    text-decoration: none;
+    color: #c7c7c7;
+    align-content: center;
+    text-decoration-line: underline;
+
+    display: inline-block;
+    padding: 16px;
+
+    margin: 8px;
+}
+
+.movie-info__link:hover {
+    color: #e6e5e5;
+}
+
+/* Media Queries for Desktop */
+@media (min-width: 1024px) {
+    .movie-info-header__details {
+        display: flex;
+        justify-content: space-around;
+    }
+    .movie-info__label {
+        font-size: 18px;
+        padding: 0 16px;
+    }
+
+    .movie-info__text {
+        padding: 16px;
+        font-size: 18px;
+        width: 50%;
+    }
+    .initial-letter::first-letter {
+        font-size: 64px; /* Larger size for larger screens */
+        line-height: 64px;
+        padding-right: 12px;
+    }
+
+    .movie-info__link {
+        font-size: 18px;
+    }
+
+    .movie-info__image {
+        margin: 18px 0 18px 18px;
+    }
+
+    .movie-info-trailer {
+        margin-top: 40px;
+    }
+}

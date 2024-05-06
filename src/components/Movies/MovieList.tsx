@@ -1,36 +1,39 @@
 import { Link } from 'react-router-dom';
 import { Movie } from './interfacesBook';
+import './MovieList.css';
+import { useContext } from 'react';
+import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
 
 interface MovieListProps {
     movies: Movie[];
 }
 
 export default function MovieList({ movies }: MovieListProps) {
-    // const { favoriteMovies, setFavoriteMovies } = useContext(FavoriteContext);
+    const { favoriteMovies, setFavoriteMovies } = useContext(FavoriteContext);
 
-    // const toggleFavorite = (movies: Movie) => {
-    //     if (favoriteBooks.some((fav) => fav.id === book.id)) {
-    //         setFavoriteBooks(favoriteBooks.filter((fav) => fav.id !== book.id));
-    //     } else {
-    //         setFavoriteBooks([...favoriteBooks, book]);
-    //     }
-    // };
+    const toggleFavorite = (movie: Movie) => {
+        if (favoriteMovies.some((fav) => fav.id === movie.id)) {
+            setFavoriteMovies(favoriteMovies.filter((fav) => fav.id !== movie.id));
+        } else {
+            setFavoriteMovies([...favoriteMovies, movie]);
+        }
+    };
 
     return (
-        <ul className="book-list__items">
+        <ul className="movie-list__items">
             {movies.map((movie) => {
-                // Determine if the current potion is a favorite
-                // const isFavorite = favoriteBooks.some((fav) => fav.id === book.id);
+                //Determine if the current potion is a favorite
+                const isFavorite = favoriteMovies.some((fav) => fav.id === movie.id);
 
                 return (
-                    <li className="book-list__item" key={movie.id}>
-                        {/* <div
+                    <li className="movie-list__item" key={movie.id}>
+                        <div
                             className={`heart ${isFavorite ? 'filled' : 'outlined'}`}
-                            onClick={() => toggleFavorite(book)}
-                        /> */}
-                        <Link to={`/movies/${movie.title}`} className="potion-list__anchor">
-                            <img src={movie.poster} alt={movie.title} className="book-list__image" />
-                            <h2 className="book-list__name">{movie.title}</h2>
+                            onClick={() => toggleFavorite(movie)}
+                        />
+                        <Link to={`/movies/${movie.title}`} className="movie-list__anchor">
+                            <img src={movie.poster} alt={movie.title} className="movie-list__image" />
+                            <h2 className="movie-list__name">{movie.title}</h2>
                         </Link>
                     </li>
                 );

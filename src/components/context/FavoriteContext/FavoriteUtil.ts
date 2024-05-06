@@ -1,6 +1,7 @@
 import { Spell } from '../../../Spells/interfacesSpell';
 import { Book } from '../../Books/interfacesBook';
 import { Character } from '../../Characters/interfacesCharacter';
+import { Movie } from '../../Movies/interfacesBook';
 import { Potion } from '../../Potions/interfacesPotion';
 
 export const getFavoriteCharactersFromLocalStorage = (): Character[] => {
@@ -25,4 +26,10 @@ export const getFavoriteBooksFromLocalStorage = (): Book[] => {
     const booksJSON = window.localStorage.getItem('favoriteBooks');
     const favoriteBooksFromLocalStorage = booksJSON !== null ? JSON.parse(booksJSON) : [];
     return favoriteBooksFromLocalStorage;
+};
+
+export const getFavoriteMoviesFromLocalStorage = (): Movie[] => {
+    const moviesJSON = window.localStorage.getItem('favoriteMovies');
+    const favoriteMoviesFromLocalStorage = moviesJSON !== null ? JSON.parse(moviesJSON) : [];
+    return favoriteMoviesFromLocalStorage;
 };

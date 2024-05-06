@@ -53,7 +53,7 @@ export const fetchBook = async (title: string) => {
     try {
         const response = await fetch(
             `https://api.potterdb.com//v1/books?
-            filter[name_i_cont_all][]=${title}&
+            filter[title_i_cont_all][]=${title}&
             page[size]=12`
                 .trim()
                 .replace(/\s/g, '')

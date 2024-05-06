@@ -7,11 +7,13 @@ import { Potion } from '../Potions/interfacesPotion';
 import {
     getFavoriteBooksFromLocalStorage,
     getFavoriteCharactersFromLocalStorage,
+    getFavoriteMoviesFromLocalStorage,
     getFavoritePotionsFromLocalStorage,
     getFavoriteSpellsFromLocalStorage,
 } from '../context/FavoriteContext/FavoriteUtil';
 import { Spell } from '../../Spells/interfacesSpell';
 import { Book } from '../Books/interfacesBook';
+import { Movie } from '../Movies/interfacesBook';
 
 export default function AppRoot() {
     const [favoriteCharacters, setFavoriteCharacters] = useState<Character[]>(
@@ -22,6 +24,8 @@ export default function AppRoot() {
     const [favoriteSpells, setFavoriteSpells] = useState<Spell[]>(getFavoriteSpellsFromLocalStorage());
 
     const [favoriteBooks, setFavoriteBooks] = useState<Book[]>(getFavoriteBooksFromLocalStorage());
+
+    const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>(getFavoriteMoviesFromLocalStorage());
 
     useEffect(() => {
         window.localStorage.setItem('favoriteCharacters', JSON.stringify(favoriteCharacters));
@@ -39,6 +43,10 @@ export default function AppRoot() {
         window.localStorage.setItem('favoriteBooks', JSON.stringify(favoriteBooks));
     }, [favoriteBooks]);
 
+    useEffect(() => {
+        window.localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+    }, [favoriteMovies]);
+
     return (
         <>
             <FavoriteContext.Provider
@@ -51,6 +59,8 @@ export default function AppRoot() {
                     setFavoriteSpells,
                     favoriteBooks,
                     setFavoriteBooks,
+                    favoriteMovies,
+                    setFavoriteMovies,
                 }}
             >
                 <nav>

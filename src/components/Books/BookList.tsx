@@ -31,7 +31,7 @@ export default function BookList({ books }: PotionListProps) {
                             className={`heart ${isFavorite ? 'filled' : 'outlined'}`}
                             onClick={() => toggleFavorite(book)}
                         />
-                        <Link to={`/books/${book.title}`} className="potion-list__anchor">
+                        <Link to={`/books/${book.title}`} className="book-list__anchor">
                             <img src={book.cover} alt={book.title} className="book-list__image" />
                             <h2 className="book-list__name">{book.title}</h2>
                         </Link>

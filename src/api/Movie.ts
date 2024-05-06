@@ -7,6 +7,20 @@ const createMovieObject = (movieDataObject: any): Movie => {
         id: movieDataObject.id,
         title: attribute.title,
         poster: attribute.poster,
+        summary: attribute.summary,
+        box_office: attribute.box_office,
+        budget: attribute.budget,
+        cinematographers: attribute.cinematographers ?? [],
+        directors: attribute.directors ?? [],
+        distributors: attribute.distributors ?? [],
+        editors: attribute.editors ?? [],
+        music_composers: attribute.music_composers ?? [],
+        producers: attribute.producers ?? [],
+        rating: attribute.rating,
+        release_date: attribute.release_date,
+        running_time: attribute.running_time,
+        screenwriters: attribute.screenwriters ?? [],
+        trailer: attribute.trailer,
         wiki: attribute.wiki,
     };
 
@@ -47,7 +61,7 @@ export const fetchMovie = async (title: string) => {
     try {
         const response = await fetch(
             `https://api.potterdb.com//v1/movies?
-            filter[name_i_cont_all][]=${title}&
+            filter[title_i_cont_all][]=${title}&
             page[size]=12`
                 .trim()
                 .replace(/\s/g, '')
