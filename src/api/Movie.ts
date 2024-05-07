@@ -27,10 +27,12 @@ const createMovieObject = (movieDataObject: any): Movie => {
     return movie;
 };
 
-export const fetchMovies = async () => {
+export const fetchMovies = async (page: number, searchInput: string) => {
     try {
         const response = await fetch(
             `https://api.potterdb.com//v1/movies?
+            filter[title_i_cont_all][]=${searchInput}&
+            page[number]=${page}&
             page[size]=12`
                 .trim()
                 .replace(/\s/g, '')
@@ -48,6 +50,7 @@ export const fetchMovies = async () => {
 
         const movieResponse: MovieResponse = {
             movies: movies,
+            amountOfPages: data.meta.pagination.last ?? page,
         };
 
         return movieResponse;

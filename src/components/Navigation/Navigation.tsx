@@ -1,6 +1,6 @@
 import './Navigation.css';
 import '../../Styles/Fonts.css';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import Hamburger from './Hamburger';
 import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
@@ -26,7 +26,10 @@ export default function Navigation() {
             <div className="navigation__header">
                 <div className="navigation-logo--wrapper">
                     {/* Harry Potter Logo */}
-                    <img src={'/Harry_Potter.png'} alt="Harry Potter" className="navigation__logo" />
+                    <Link to={`/home`}>
+                        <img src={'/Harry_Potter.png'} alt="Harry Potter" className="navigation__logo" />
+                    </Link>
+
                     <h2 className="navigation__title">Harry Potter WIKI</h2>
                 </div>
                 <Hamburger isNavExpanded={isNavExpanded} setIsNavExpanded={setIsNavExpanded} />

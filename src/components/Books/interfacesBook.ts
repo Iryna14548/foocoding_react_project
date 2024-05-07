@@ -12,4 +12,5 @@ export interface Book {
 
 export interface BookResponse {
     books: Book[];
+    amountOfPages: number;
 }

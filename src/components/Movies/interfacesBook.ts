@@ -21,4 +21,5 @@ export interface Movie {
 
 export interface MovieResponse {
     movies: Movie[];
+    amountOfPages: number;
 }

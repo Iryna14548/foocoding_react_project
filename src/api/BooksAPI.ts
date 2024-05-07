@@ -18,10 +18,12 @@ const createBookObject = (bookDataObject: any): Book => {
     return book;
 };
 
-export const fetchBooks = async () => {
+export const fetchBooks = async (page: number, searchInput: string) => {
     try {
         const response = await fetch(
             `https://api.potterdb.com//v1/books?
+            filter[title_i_cont_all][]=${searchInput}&
+            page[number]=${page}&
          
             page[size]=12`
                 .trim()
@@ -40,6 +42,7 @@ export const fetchBooks = async () => {
 
         const bookResponse: BookResponse = {
             books: books,
+            amountOfPages: data.meta.pagination.last ?? page,
         };
 
         return bookResponse;

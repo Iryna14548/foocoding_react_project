@@ -3,21 +3,32 @@ import BookList from '../Books/BookList';
 import { Book, BookResponse } from '../Books/interfacesBook';
 import { fetchBooks } from '../../api/BooksAPI';
 import '../../Styles/Hero.css';
+import Pagination from '../Generic/Pagination';
+import Search from '../Generic/Search';
 
 export default function BooksPage() {
     const [books, setBooks] = useState<Book[]>([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [amountOfPages, setAmountOfPages] = useState(0);
+    const [searchInput, setSearchInput] = useState('');
 
     const handleFetchBooks = (bookResponse: BookResponse) => {
         setBooks(bookResponse.books);
-
+        setAmountOfPages(bookResponse.amountOfPages);
         //scroll to top
         window.scrollTo(0, 0);
     };
 
     useEffect(() => {
-        fetchBooks().then(handleFetchBooks);
-    }, []);
+        fetchBooks(currentPage, searchInput).then(handleFetchBooks);
+    }, [currentPage]);
 
+    const handleBooksSearch = (searchInput: string) => {
+        setSearchInput(searchInput);
+        const newCurrentPage = 1;
+        setCurrentPage(newCurrentPage);
+        fetchBooks(newCurrentPage, searchInput).then(handleFetchBooks);
+    };
     return (
         <>
             <div>
@@ -28,9 +39,16 @@ export default function BooksPage() {
                     take you from Hogwarts to beyond. Discover stories of adventure, mystery, and the magic of
                     friendship!
                 </p>
-
+                <Search handleSearch={handleBooksSearch} />
                 <BookList books={books} />
             </div>
+            <Pagination
+                currentPage={currentPage}
+                onCurrentPageChange={(page: number) => {
+                    setCurrentPage(page);
+                }}
+                amountOfPages={amountOfPages}
+            />
         </>
     );
 }
