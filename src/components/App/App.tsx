@@ -2,7 +2,7 @@ import './App.css';
 
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import AppRoot from './AppRoot';
-import Home from '../Pages/Home';
+import Home from '../Pages/HomePage';
 import CharacterListPage from '../Pages/CharacterListPage';
 import CharacterPage from '../Pages/CharacterPage';
 import FavoritesPage from '../Pages/FavoritesPage';

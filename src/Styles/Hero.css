@@ -6,6 +6,8 @@
     letter-spacing: 12px;
     color: white;
     margin: 0;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .hero__subheading {
