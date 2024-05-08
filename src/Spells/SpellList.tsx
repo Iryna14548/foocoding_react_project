@@ -33,7 +33,7 @@ export default function SpellList({ spells }: SpellListProps) {
                         />
                         <Link to={`/spells/${spell.name.replace(/\//g, ':')}`} className="spell-list__anchor">
                             <img
-                                src={spell.image ?? '../src/images/Spell_Icon.jpg'}
+                                src={spell.image ?? '/Spell_Icon.jpg'}
                                 alt={spell.name}
                                 className="spell-list__image"
                             />

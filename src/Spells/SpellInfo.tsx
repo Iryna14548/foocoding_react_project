@@ -11,7 +11,7 @@ export default function SpellInfo({ spellInfo }: SpellProps) {
             <h1 className="potion-info__name">{spellInfo.name}</h1>
 
             <img
-                src={spellInfo.image ?? '../src/images/Spell_Icon.jpg'}
+                src={spellInfo.image ?? '/Spell_Icon.jpg'}
                 alt={spellInfo.name}
                 className="spell-info__image "
             />

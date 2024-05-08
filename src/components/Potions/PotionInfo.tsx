@@ -11,7 +11,7 @@ export default function PotionInfo({ potionInfo }: PotionProps) {
             <h1 className="potion-info__name">{potionInfo.name}</h1>
 
             <img
-                src={potionInfo.image ?? '../src/images/potion.jpg'}
+                src={potionInfo.image ?? '/potion.jpg'}
                 alt={potionInfo.name}
                 className="potion-info__image"
             />

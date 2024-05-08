@@ -10,7 +10,7 @@ export default function CharacterInfo({ characterInfo }: CharacterProps) {
         <div className="character-info">
             <h1 className="character-info__name">{characterInfo.name}</h1>
             <img
-                src={characterInfo.image ?? '../src/images/unknown.jpg'}
+                src={characterInfo.image ?? '/unknown.jpg'}
                 alt={characterInfo.name}
                 className="character-info__image"
             />

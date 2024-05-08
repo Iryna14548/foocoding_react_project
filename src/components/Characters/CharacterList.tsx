@@ -33,7 +33,7 @@ export default function CharacterList({ characters }: CharacterListProps) {
                         />
                         <Link to={`/characters/${character.name}`} className="character-list__anchor">
                             <img
-                                src={character.image ?? '../src/images/unknown.jpg'}
+                                src={character.image ?? '/unknown.jpg'}
                                 alt={character.name}
                                 className="character-list__image"
                             />

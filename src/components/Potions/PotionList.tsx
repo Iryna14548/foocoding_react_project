@@ -33,7 +33,7 @@ export default function PotionList({ potions }: PotionListProps) {
                         />
                         <Link to={`/potions/${potion.name}`} className="potion-list__anchor">
                             <img
-                                src={potion.image ?? '../src/images/potion.jpg'}
+                                src={potion.image ?? '/potion.jpg'}
                                 alt={potion.name}
                                 className="potion-list__image"
                             />
