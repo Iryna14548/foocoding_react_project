@@ -24,7 +24,7 @@
     background-image: unset;
     cursor: pointer;
     margin-bottom: 18px;
-    max-width: 250potion-list__imagepx;
+    max-width: 250px;
 }
 .potion-info__detail {
     display: flex;

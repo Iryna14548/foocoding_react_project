@@ -19,34 +19,34 @@ export default function HomePage() {
             <ul className="home-list__items">
                 <li className="home-list__item">
                     <Link to={`/books`} className="home-list__anchor">
-                        <img src="/books-stack-of-three.svg" alt="books" className="home-list__image" />
+                        <img src="/rectangle-1.jpg" alt="books" className="home-list__image" />
                         <h2 className="home-list__name">Books</h2>
                     </Link>
                 </li>
 
                 <li className="home-list__item">
                     <Link to={`/movies`} className="home-list__anchor">
-                        <img src="/movie.svg" alt="movies" className="home-list__image" />
+                        <img src="/PS_poster.webp" alt="movies" className="home-list__image" />
                         <h2 className="home-list__name">Movies</h2>
                     </Link>
                 </li>
 
                 <li className="home-list__item">
                     <Link to={`/characters`} className="home-list__anchor">
-                        <img src="/person.svg" alt="characters" className="home-list__image" />
+                        <img src="/charactersHome.png" alt="characters" className="home-list__image " />
                         <h2 className="home-list__name">Characters</h2>
                     </Link>
                 </li>
                 <li className="home-list__item">
                     <Link to={`/potions`} className="home-list__anchor">
-                        <img src="/potion.svg" alt="potions" className="home-list__image" />
+                        <img src="/potion+of+climbing.png" alt="potions" className="home-list__image " />
                         <h2 className="home-list__name">Potions</h2>
                     </Link>
                 </li>
 
                 <li className="home-list__item">
                     <Link to={`/spells`} className="home-list__anchor">
-                        <img src="/magic-wand.svg" alt="spells" className="home-list__image" />
+                        <img src="/Spell_Icon.jpg" alt="spells" className="home-list__image " />
 
                         <h2 className="home-list__name">Spells</h2>
                     </Link>
@@ -54,7 +54,7 @@ export default function HomePage() {
 
                 <li className="home-list__item">
                     <Link to={`/favorites`} className="home-list__anchor">
-                        <img src="/heart.svg" alt="spells" className="home-list__image" />
+                        <img src="/favorite.webp" alt="spells" className="home-list__image" />
                         <h2 className="home-list__name">Favorites</h2>
                     </Link>
                 </li>
