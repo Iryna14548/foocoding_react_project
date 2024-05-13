@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from '../Generic/Loading';
-import { Spell } from '../../Spells/interfacesSpell';
+import { Spell } from '../Spells/interfacesSpell';
 import { fetchSpell } from '../../api/SpellsAPI.';
-import SpellInfo from '../../Spells/SpellInfo';
+import SpellInfo from '../Spells/SpellInfo';
 
 export default function SpellPage() {
     const { name } = useParams();

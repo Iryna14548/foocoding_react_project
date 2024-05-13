@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchSpells } from '../../api/SpellsAPI.';
-import { Spell, SpellResponse } from '../../Spells/interfacesSpell';
-import SpellList from '../../Spells/SpellList';
+import { Spell, SpellResponse } from '../Spells/interfacesSpell';
+import SpellList from '../Spells/SpellList';
 import Pagination from '../Generic/Pagination';
 import Search from '../Generic/Search';
 import '../../Styles/Hero.css';

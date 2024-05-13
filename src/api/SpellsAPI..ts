@@ -1,4 +1,4 @@
-import { Spell, SpellResponse } from '../Spells/interfacesSpell';
+import { Spell, SpellResponse } from '../components/Spells/interfacesSpell';
 
 const createSpellObject = (spellDataObject: any): Spell => {
     const attribute = spellDataObject.attributes;

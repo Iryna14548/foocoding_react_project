@@ -5,7 +5,7 @@ import './HomePage.css';
 export default function HomePage() {
     return (
         <>
-            <h2>
+            <div>
                 <h1 className="hero__title">Welcome to the Harry Potter WIKI!</h1>
 
                 <p className="hero__preamble">
@@ -15,7 +15,7 @@ export default function HomePage() {
                 </p>
 
                 <h3 className="hero__subheading ">Let the adventure begin!</h3>
-            </h2>
+            </div>
             <ul className="home-list__items">
                 <li className="home-list__item">
                     <Link to={`/books`} className="home-list__anchor">

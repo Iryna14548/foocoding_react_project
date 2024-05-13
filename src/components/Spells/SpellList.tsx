@@ -2,7 +2,7 @@ import './SpellList.css';
 import { Link } from 'react-router-dom';
 import { Spell } from './interfacesSpell';
 import { useContext } from 'react';
-import { FavoriteContext } from '../components/context/FavoriteContext/FavoriteContext';
+import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
 
 interface SpellListProps {
     spells: Spell[];

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
 import './Favorite.css';
-import SpellList from '../../Spells/SpellList';
+import SpellList from '../Spells/SpellList';
 
 export default function FavoriteSpells() {
     const { favoriteSpells } = useContext(FavoriteContext);

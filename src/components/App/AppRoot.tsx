@@ -11,7 +11,7 @@ import {
     getFavoritePotionsFromLocalStorage,
     getFavoriteSpellsFromLocalStorage,
 } from '../context/FavoriteContext/FavoriteUtil';
-import { Spell } from '../../Spells/interfacesSpell';
+import { Spell } from '../Spells/interfacesSpell';
 import { Book } from '../Books/interfacesBook';
 import { Movie } from '../Movies/interfacesBook';
 

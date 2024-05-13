@@ -1,4 +1,4 @@
-import { Spell } from '../../../Spells/interfacesSpell';
+import { Spell } from '../../Spells/interfacesSpell';
 import { Book } from '../../Books/interfacesBook';
 import { Character } from '../../Characters/interfacesCharacter';
 import { Movie } from '../../Movies/interfacesBook';

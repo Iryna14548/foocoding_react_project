@@ -1,7 +1,7 @@
 import React from 'react';
 import { Character } from '../../Characters/interfacesCharacter';
 import { Potion } from '../../Potions/interfacesPotion';
-import { Spell } from '../../../Spells/interfacesSpell';
+import { Spell } from '../../Spells/interfacesSpell';
 import { Book } from '../../Books/interfacesBook';
 import { Movie } from '../../Movies/interfacesBook';
 

@@ -1,7 +1,7 @@
 import './Navigation.css';
 import '../../Styles/Fonts.css';
 import { Link, NavLink } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useState, useMemo } from 'react';
 import Hamburger from './Hamburger';
 import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
 
@@ -14,12 +14,16 @@ export default function Navigation() {
         setIsNavExpanded(false);
     };
 
-    const countFavorites =
-        favoriteCharacters.length +
-        favoritePotions.length +
-        favoriteSpells.length +
-        favoriteBooks.length +
-        favoriteMovies.length;
+    // Memoize the countFavorites value
+    const countFavorites = useMemo(() => {
+        return (
+            favoriteCharacters.length +
+            favoritePotions.length +
+            favoriteSpells.length +
+            favoriteBooks.length +
+            favoriteMovies.length
+        );
+    }, [favoriteCharacters, favoritePotions, favoriteSpells, favoriteBooks, favoriteMovies]);
 
     return (
         <nav className="navigation">
