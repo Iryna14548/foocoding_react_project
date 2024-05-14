@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import CharacterList from '../Characters/CharacterList';
 import Pagination from '../Generic/Pagination';
 import { fetchCharacters } from '../../api/CharacterAPI';
@@ -11,17 +11,26 @@ export default function CharactersPage() {
     const [currentPage, setCurrentPage] = useState(window.history.state?.currentPage ?? 1);
     const [amountOfPages, setAmountOfPages] = useState(window.history.state?.amountOfPages ?? 0);
     const [searchInput, setSearchInput] = useState(window.history.state?.searchInput ?? '');
+    const characterListRef = useRef<HTMLDivElement>(null);
 
-    const handleFetchCharacter = (characterResponse: CharacterResponse) => {
-        setCharacters(characterResponse.characters);
-        setAmountOfPages(characterResponse.amountOfPages);
-        //scroll to top
-        window.scrollTo(0, 0);
-    };
+    const handleFetchCharacter = useCallback(
+        (characterResponse: CharacterResponse) => {
+            setCharacters(characterResponse.characters);
+            setAmountOfPages(characterResponse.amountOfPages);
+
+            // Scroll to top
+            if (characterListRef.current! && currentPage !== 1) {
+                characterListRef.current.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo(0, 0);
+            }
+        },
+        [currentPage]
+    );
 
     useEffect(() => {
         fetchCharacters(currentPage, searchInput).then(handleFetchCharacter);
-    }, [currentPage]);
+    }, [currentPage, handleFetchCharacter, searchInput]);
 
     const handleCharacterSearch = (searchInput: string) => {
         setSearchInput(searchInput);
@@ -56,7 +65,9 @@ export default function CharactersPage() {
                     extraordinary world's rich tapestry. Go on a trip through the wonders of the magical
                     world, and discover the full spectrum of its inhabitants!
                 </p>
-                <Search handleSearch={handleCharacterSearch} />
+                <div ref={characterListRef}>
+                    <Search handleSearch={handleCharacterSearch} />
+                </div>
                 <CharacterList characters={characters} />
             </div>
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import BookList from '../Books/BookList';
 import { Book, BookResponse } from '../Books/interfacesBook';
 import { fetchBooks } from '../../api/BooksAPI';
@@ -7,21 +7,30 @@ import Pagination from '../Generic/Pagination';
 import Search from '../Generic/Search';
 
 export default function BooksPage() {
-    const [books, setBooks] = useState<Book[]>([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [amountOfPages, setAmountOfPages] = useState(0);
-    const [searchInput, setSearchInput] = useState('');
+    const [books, setBooks] = useState<Book[]>(window.history.state?.books ?? []);
+    const [currentPage, setCurrentPage] = useState(window.history.state?.currentPage ?? 1);
+    const [amountOfPages, setAmountOfPages] = useState(window.history.state?.amountOfPages ?? 0);
+    const [searchInput, setSearchInput] = useState(window.history.state?.searchInput ?? '');
+    const bookListRef = useRef<HTMLDivElement>(null);
 
-    const handleFetchBooks = (bookResponse: BookResponse) => {
-        setBooks(bookResponse.books);
-        setAmountOfPages(bookResponse.amountOfPages);
-        //scroll to top
-        window.scrollTo(0, 0);
-    };
+    const handleFetchBooks = useCallback(
+        (bookResponse: BookResponse) => {
+            setBooks(bookResponse.books);
+            setAmountOfPages(bookResponse.amountOfPages);
+
+            // Scroll to top
+            if (bookListRef.current! && currentPage !== 1) {
+                bookListRef.current.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo(0, 0);
+            }
+        },
+        [currentPage]
+    );
 
     useEffect(() => {
         fetchBooks(currentPage, searchInput).then(handleFetchBooks);
-    }, [currentPage]);
+    }, [currentPage, handleFetchBooks, searchInput]);
 
     const handleBooksSearch = (searchInput: string) => {
         setSearchInput(searchInput);
@@ -29,6 +38,20 @@ export default function BooksPage() {
         setCurrentPage(newCurrentPage);
         fetchBooks(newCurrentPage, searchInput).then(handleFetchBooks);
     };
+
+    useEffect(() => {
+        window.history.replaceState(
+            {
+                ...window.history.state,
+                books,
+                currentPage,
+                amountOfPages,
+                searchInput,
+            },
+            ''
+        );
+    }, [books, currentPage, amountOfPages, searchInput]);
+
     return (
         <>
             <div>
@@ -39,13 +62,17 @@ export default function BooksPage() {
                     take you from Hogwarts to beyond. Discover stories of adventure, mystery, and the magic of
                     friendship!
                 </p>
-                <Search handleSearch={handleBooksSearch} />
+                <div ref={bookListRef}>
+                    <Search handleSearch={handleBooksSearch} />
+                </div>
                 <BookList books={books} />
             </div>
             <Pagination
                 currentPage={currentPage}
                 onCurrentPageChange={(page: number) => {
                     setCurrentPage(page);
+                    if (page === currentPage) {
+                    }
                 }}
                 amountOfPages={amountOfPages}
             />

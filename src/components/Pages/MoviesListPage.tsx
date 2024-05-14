@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import '../../Styles/Hero.css';
 import { fetchMovies } from '../../api/Movie';
 import { Movie, MovieResponse } from '../Movies/interfacesBook';
@@ -7,21 +7,30 @@ import Search from '../Generic/Search';
 import Pagination from '../Generic/Pagination';
 
 export default function MoviesPage() {
-    const [movies, setMovies] = useState<Movie[]>([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [amountOfPages, setAmountOfPages] = useState(0);
-    const [searchInput, setSearchInput] = useState('');
+    const [movies, setMovies] = useState<Movie[]>(window.history.state?.movies ?? []);
+    const [currentPage, setCurrentPage] = useState(window.history.state?.currentPage ?? 1);
+    const [amountOfPages, setAmountOfPages] = useState(window.history.state?.amountOfPages ?? 0);
+    const [searchInput, setSearchInput] = useState(window.history.state?.searchInput ?? '');
+    const moviesListRef = useRef<HTMLDivElement>(null);
 
-    const handleFetchMovies = (movieResponse: MovieResponse) => {
-        setMovies(movieResponse.movies);
-        setAmountOfPages(movieResponse.amountOfPages);
-        //scroll to top
-        window.scrollTo(0, 0);
-    };
+    const handleFetchMovies = useCallback(
+        (movieResponse: MovieResponse) => {
+            setMovies(movieResponse.movies);
+            setAmountOfPages(movieResponse.amountOfPages);
+
+            // Scroll to top
+            if (moviesListRef.current! && currentPage !== 1) {
+                moviesListRef.current.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo(0, 0);
+            }
+        },
+        [currentPage]
+    );
 
     useEffect(() => {
         fetchMovies(currentPage, searchInput).then(handleFetchMovies);
-    }, [currentPage]);
+    }, [currentPage, handleFetchMovies, searchInput]);
 
     const handleMoviesSearch = (searchInput: string) => {
         setSearchInput(searchInput);
@@ -29,6 +38,20 @@ export default function MoviesPage() {
         setCurrentPage(newCurrentPage);
         fetchMovies(newCurrentPage, searchInput).then(handleFetchMovies);
     };
+
+    useEffect(() => {
+        window.history.replaceState(
+            {
+                ...window.history.state,
+                movies,
+                currentPage,
+                amountOfPages,
+                searchInput,
+            },
+            ''
+        );
+    }, [movies, currentPage, amountOfPages, searchInput]);
+
     return (
         <>
             <div>
@@ -39,7 +62,9 @@ export default function MoviesPage() {
                     of the saga and experience the enchantment, battles, and friendships of the wizarding
                     world. Watch the adventures unfold.
                 </p>
-                <Search handleSearch={handleMoviesSearch} />
+                <div ref={moviesListRef}>
+                    <Search handleSearch={handleMoviesSearch} />
+                </div>
                 <MovieList movies={movies} />
             </div>
             <Pagination

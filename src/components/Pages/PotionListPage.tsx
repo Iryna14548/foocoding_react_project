@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import PotionList from '../Potions/PotionList';
 import { fetchPotions } from '../../api/PotionsAPI';
 import { Potion, PotionResponse } from '../Potions/interfacesPotion';
@@ -7,21 +7,30 @@ import Search from '../Generic/Search';
 import '../../Styles/Hero.css';
 
 export default function PotionPage() {
-    const [potions, setPotions] = useState<Potion[]>([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [amountOfPages, setAmountOfPages] = useState(0);
-    const [searchInput, setSearchInput] = useState('');
+    const [potions, setPotions] = useState<Potion[]>(window.history.state?.potions ?? []);
+    const [currentPage, setCurrentPage] = useState(window.history.state?.currentPage ?? 1);
+    const [amountOfPages, setAmountOfPages] = useState(window.history.state?.amountOfPages ?? 0);
+    const [searchInput, setSearchInput] = useState(window.history.state?.searchInput ?? '');
+    const potionsListRef = useRef<HTMLDivElement>(null);
 
-    const handleFetchPotions = (potionResponse: PotionResponse) => {
-        setPotions(potionResponse.potions);
-        setAmountOfPages(potionResponse.amountOfPages);
-        //scroll to top
-        window.scrollTo(0, 0);
-    };
+    const handleFetchPotions = useCallback(
+        (potionResponse: PotionResponse) => {
+            setPotions(potionResponse.potions);
+            setAmountOfPages(potionResponse.amountOfPages);
+
+            // Scroll to top
+            if (potionsListRef.current! && currentPage !== 1) {
+                potionsListRef.current.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo(0, 0);
+            }
+        },
+        [currentPage]
+    );
 
     useEffect(() => {
         fetchPotions(currentPage, searchInput).then(handleFetchPotions);
-    }, [currentPage]);
+    }, [currentPage, handleFetchPotions, searchInput]);
 
     const handlePotionSearch = (searchInput: string) => {
         setSearchInput(searchInput);
@@ -29,6 +38,19 @@ export default function PotionPage() {
         setCurrentPage(newCurrentPage);
         fetchPotions(newCurrentPage, searchInput).then(handleFetchPotions);
     };
+
+    useEffect(() => {
+        window.history.replaceState(
+            {
+                ...window.history.state,
+                potions,
+                currentPage,
+                amountOfPages,
+                searchInput,
+            },
+            ''
+        );
+    }, [potions, currentPage, amountOfPages, searchInput]);
 
     return (
         <>
@@ -41,7 +63,9 @@ export default function PotionPage() {
                     the amazing powers of these special drinks that have sparked so much excitement and
                     mystery. Learn about the different potions and what they do in the wizarding world!
                 </p>
-                <Search handleSearch={handlePotionSearch} />
+                <div ref={potionsListRef}>
+                    <Search handleSearch={handlePotionSearch} />
+                </div>
                 <PotionList potions={potions} />
             </div>
             <Pagination

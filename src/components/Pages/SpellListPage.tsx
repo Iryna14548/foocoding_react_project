@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { fetchSpells } from '../../api/SpellsAPI.';
 import { Spell, SpellResponse } from '../Spells/interfacesSpell';
 import SpellList from '../Spells/SpellList';
@@ -7,22 +7,30 @@ import Search from '../Generic/Search';
 import '../../Styles/Hero.css';
 
 export default function SpellsPage() {
-    const [spells, setSpells] = useState<Spell[]>([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [amountOfPages, setAmountOfPages] = useState(0);
-    const [searchInput, setSearchInput] = useState('');
+    const [spells, setSpells] = useState<Spell[]>(window.history.state?.spells ?? []);
+    const [currentPage, setCurrentPage] = useState(window.history.state?.currentPage ?? 1);
+    const [amountOfPages, setAmountOfPages] = useState(window.history.state?.amountOfPages ?? 0);
+    const [searchInput, setSearchInput] = useState(window.history.state?.searchInput ?? '');
+    const spellsListRef = useRef<HTMLDivElement>(null);
 
-    const handleFetchSpells = (spellResponse: SpellResponse) => {
-        setSpells(spellResponse.spells);
-        setAmountOfPages(spellResponse.amountOfPages);
+    const handleFetchSpells = useCallback(
+        (spellResponse: SpellResponse) => {
+            setSpells(spellResponse.spells);
+            setAmountOfPages(spellResponse.amountOfPages);
 
-        //scroll to top
-        window.scrollTo(0, 0);
-    };
+            // Scroll to top
+            if (spellsListRef.current! && currentPage !== 1) {
+                spellsListRef.current.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo(0, 0);
+            }
+        },
+        [currentPage]
+    );
 
     useEffect(() => {
         fetchSpells(currentPage, searchInput).then(handleFetchSpells);
-    }, [currentPage]);
+    }, [currentPage, handleFetchSpells, searchInput]);
 
     const handleSpellSearch = (searchInput: string) => {
         setSearchInput(searchInput);
@@ -30,6 +38,19 @@ export default function SpellsPage() {
         setCurrentPage(newCurrentPage);
         fetchSpells(newCurrentPage, searchInput).then(handleFetchSpells);
     };
+
+    useEffect(() => {
+        window.history.replaceState(
+            {
+                ...window.history.state,
+                spells,
+                currentPage,
+                amountOfPages,
+                searchInput,
+            },
+            ''
+        );
+    }, [spells, currentPage, amountOfPages, searchInput]);
 
     return (
         <>
@@ -42,7 +63,10 @@ export default function SpellsPage() {
                     that define the bravery, wisdom, and mischief of witches and wizards Join the adventure
                     and learn the magic!
                 </p>
-                <Search handleSearch={handleSpellSearch} />
+
+                <div ref={spellsListRef}>
+                    <Search handleSearch={handleSpellSearch} />
+                </div>
                 <SpellList spells={spells} />
             </div>
             <Pagination

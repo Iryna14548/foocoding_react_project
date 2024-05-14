@@ -40,7 +40,7 @@
 /* Media Queries for Desktop */
 @media (min-width: 768px) {
     .hero__preamble {
-        margin: 0 auto 24px;
+        margin: 0 auto;
         font-size: 18px;
         font-weight: 500;
         max-width: 860px;
