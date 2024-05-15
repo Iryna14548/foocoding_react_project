@@ -14,6 +14,7 @@ import BookListPage from '../Pages/BookListPage';
 import MoviesListPage from '../Pages/MoviesListPage';
 import BookPage from '../Pages/BookPage';
 import MoviePage from '../Pages/MoviePage';
+import CartPage from '../Pages/CartPage';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
             <Route path="spells" element={<SpellListPage />} />
             <Route path="spells/:name" element={<SpellPage />} />
             <Route path="favorites" element={<FavoritesPage />} />
+            <Route path="cart" element={<CartPage />} />
         </Route>
     )
 );

@@ -4,11 +4,11 @@ import { useContext } from 'react';
 import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
 import { Link } from 'react-router-dom';
 
-interface PotionListProps {
+interface BookListProps {
     books: Book[];
 }
 
-export default function BookList({ books }: PotionListProps) {
+export default function BookList({ books }: BookListProps) {
     const { favoriteBooks, setFavoriteBooks } = useContext(FavoriteContext);
 
     const toggleFavorite = (book: Book) => {

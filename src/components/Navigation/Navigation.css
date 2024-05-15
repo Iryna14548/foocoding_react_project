@@ -130,13 +130,14 @@ nav a.active {
 /* cart icon */
 .cart {
     font-size: 24px;
+
     cursor: pointer;
 }
 
 /* Outlined cart - using Unicode character for cart */
 .navigation-cart__icon::before {
     content: '\1F6D2';
-    color: white;
+    color: white !important;
 }
 
 /* Styles for tablets */
@@ -151,13 +152,13 @@ nav a.active {
     }
 
     .navigation__title {
-        font-size: 16px; /* Larger font size for tablet */
+        font-size: 12px;
         margin: 0;
     }
 
     .navigation__list {
         flex-direction: row;
-        gap: 26px;
+        gap: 20px;
         display: flex;
         align-self: center;
         position: static;

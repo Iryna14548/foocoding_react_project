@@ -14,6 +14,8 @@ import {
 import { Spell } from '../Spells/interfacesSpell';
 import { Book } from '../Books/interfacesBook';
 import { Movie } from '../Movies/interfacesBook';
+import { getCartBooksFromLocalStorage } from '../context/CartContext/CartUtil';
+import { CartContext } from '../context/CartContext/CartContext';
 
 export default function AppRoot() {
     const [favoriteCharacters, setFavoriteCharacters] = useState<Character[]>(
@@ -26,6 +28,8 @@ export default function AppRoot() {
     const [favoriteBooks, setFavoriteBooks] = useState<Book[]>(getFavoriteBooksFromLocalStorage());
 
     const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>(getFavoriteMoviesFromLocalStorage());
+
+    const [cartBooks, setCartBooks] = useState<Book[]>(getCartBooksFromLocalStorage());
 
     useEffect(() => {
         window.localStorage.setItem('favoriteCharacters', JSON.stringify(favoriteCharacters));
@@ -47,6 +51,10 @@ export default function AppRoot() {
         window.localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
     }, [favoriteMovies]);
 
+    useEffect(() => {
+        window.localStorage.setItem('cartBooks', JSON.stringify(cartBooks));
+    }, [cartBooks]);
+
     return (
         <>
             <FavoriteContext.Provider
@@ -63,12 +71,19 @@ export default function AppRoot() {
                     setFavoriteMovies,
                 }}
             >
-                <nav>
-                    <Navigation />
-                </nav>
-                <main className="app__content">
-                    <Outlet />
-                </main>
+                <CartContext.Provider
+                    value={{
+                        cartBooks,
+                        setCartBooks,
+                    }}
+                >
+                    <nav>
+                        <Navigation />
+                    </nav>
+                    <main className="app__content">
+                        <Outlet />
+                    </main>
+                </CartContext.Provider>
             </FavoriteContext.Provider>
         </>
     );

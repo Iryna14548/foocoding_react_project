@@ -1,11 +1,29 @@
 import { Book } from './interfacesBook';
 import './BookInfo.css';
+import { useContext, useMemo } from 'react';
+import { CartContext } from '../context/CartContext/CartContext';
 
 interface BookProps {
     bookInfo: Book;
 }
 
 export default function BookInfo({ bookInfo }: BookProps) {
+    const { cartBooks, setCartBooks } = useContext(CartContext);
+
+    const addToCart = () => {
+        if (!cartBooks.find((book) => book.id === bookInfo.id)) {
+            setCartBooks([...cartBooks, bookInfo]);
+        }
+    };
+
+    const removeFromCart = () => {
+        setCartBooks(cartBooks.filter((book) => book.id !== bookInfo.id));
+    };
+
+    const isAdded = useMemo(() => {
+        return cartBooks.find((book) => book.id === bookInfo.id) !== undefined;
+    }, [cartBooks]);
+
     return (
         <div className="book-info">
             <h1 className="book-info__name">{bookInfo.title}</h1>
@@ -13,7 +31,17 @@ export default function BookInfo({ bookInfo }: BookProps) {
             <div className="book-info-header__details book-info__detail">
                 <img src={bookInfo.cover} alt={bookInfo.title} className="book-info__image " />
 
-                {bookInfo.summary && <p className="book-info__text initial-letter">{bookInfo.summary}</p>}
+                {bookInfo.summary && (
+                    <p className="book-info__detail-text initial-letter">
+                        {bookInfo.summary} <br />
+                        <button
+                            onClick={isAdded ? removeFromCart : addToCart}
+                            className={`book-button navigation-cart__icon cart`}
+                        >
+                            {isAdded ? 'Remove from cart' : 'Add to Cart'}
+                        </button>
+                    </p>
+                )}
             </div>
 
             {bookInfo.title && (

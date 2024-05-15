@@ -14,7 +14,7 @@ export default function MovieInfo({ movieInfo }: MovieProps) {
                 <img src={movieInfo.poster} alt={movieInfo.title} className="movie-info__image " />
 
                 {movieInfo.summary && (
-                    <p className="movie-info__text initial-letter">
+                    <p className="movie-info__summary-text initial-letter">
                         {movieInfo.summary}
                         <a
                             href={movieInfo.trailer}

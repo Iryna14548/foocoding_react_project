@@ -29,7 +29,6 @@
 
 .movie-info__detail {
     display: flex;
-    gap: 32px;
 }
 
 .movie-info-header__details {
@@ -56,10 +55,19 @@
     font-size: 16px;
     padding: 0 8px;
 
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
 }
 
 .movie-info__text {
+    flex-basis: auto;
+    width: 60%;
+    text-align: left;
+    padding: 8px;
+    list-style: none;
+    margin: 8px;
+}
+
+.movie-info__summary-text {
     flex-basis: auto;
     text-align: left;
     padding: 8px;
@@ -95,6 +103,9 @@
     padding: 16px;
 
     margin: 8px;
+
+    width: 60%;
+    text-align: left;
 }
 
 .movie-info__link:hover {
@@ -112,7 +123,7 @@
         padding: 0 16px;
     }
 
-    .movie-info__text {
+    .movie-info__summary-text {
         padding: 16px;
         font-size: 18px;
         width: 50%;
