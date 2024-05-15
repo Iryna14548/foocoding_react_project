@@ -20,7 +20,7 @@ export default function Search({ handleSearch }: SearchProps) {
                 type="text"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
-                placeholder="Search for a character"
+                placeholder="Search"
             />
         </form>
     );

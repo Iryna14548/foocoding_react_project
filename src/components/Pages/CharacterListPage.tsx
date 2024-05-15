@@ -30,7 +30,7 @@ export default function CharactersPage() {
 
     useEffect(() => {
         fetchCharacters(currentPage, searchInput).then(handleFetchCharacter);
-    }, [currentPage, handleFetchCharacter, searchInput]);
+    }, [currentPage, searchInput]);
 
     const handleCharacterSearch = (searchInput: string) => {
         setSearchInput(searchInput);

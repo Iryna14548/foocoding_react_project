@@ -30,7 +30,7 @@ export default function SpellsPage() {
 
     useEffect(() => {
         fetchSpells(currentPage, searchInput).then(handleFetchSpells);
-    }, [currentPage, handleFetchSpells, searchInput]);
+    }, [currentPage, searchInput]);
 
     const handleSpellSearch = (searchInput: string) => {
         setSearchInput(searchInput);

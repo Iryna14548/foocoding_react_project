@@ -30,7 +30,7 @@ export default function MoviesPage() {
 
     useEffect(() => {
         fetchMovies(currentPage, searchInput).then(handleFetchMovies);
-    }, [currentPage, handleFetchMovies, searchInput]);
+    }, [currentPage, searchInput]);
 
     const handleMoviesSearch = (searchInput: string) => {
         setSearchInput(searchInput);

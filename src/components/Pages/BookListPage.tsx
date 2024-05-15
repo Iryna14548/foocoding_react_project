@@ -30,7 +30,7 @@ export default function BooksPage() {
 
     useEffect(() => {
         fetchBooks(currentPage, searchInput).then(handleFetchBooks);
-    }, [currentPage, handleFetchBooks, searchInput]);
+    }, [currentPage, searchInput]);
 
     const handleBooksSearch = (searchInput: string) => {
         setSearchInput(searchInput);

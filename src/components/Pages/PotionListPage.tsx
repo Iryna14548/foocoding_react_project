@@ -30,7 +30,7 @@ export default function PotionPage() {
 
     useEffect(() => {
         fetchPotions(currentPage, searchInput).then(handleFetchPotions);
-    }, [currentPage, handleFetchPotions, searchInput]);
+    }, [currentPage, searchInput]);
 
     const handlePotionSearch = (searchInput: string) => {
         setSearchInput(searchInput);
