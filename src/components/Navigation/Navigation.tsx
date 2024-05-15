@@ -105,9 +105,7 @@ export default function Navigation() {
                 </li>
                 <li className="navigation__item navigation-item-icon">
                     <NavLink to="/cart" className="navigation__link" onClick={closeNav}>
-                        <span className="navigation-cart__icon"> 🛒 </span>
-
-                        <span className="navigation-heart__count">{countFavorites}</span>
+                        <span className="navigation-cart__icon cart"> </span>
                     </NavLink>
                 </li>
             </ul>

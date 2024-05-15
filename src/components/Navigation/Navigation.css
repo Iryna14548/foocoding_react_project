@@ -127,6 +127,18 @@ nav a.active {
     height: 22px;
 }
 
+/* cart icon */
+.cart {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Outlined cart - using Unicode character for cart */
+.navigation-cart__icon::before {
+    content: '\1F6D2';
+    color: white;
+}
+
 /* Styles for tablets */
 @media (min-width: 768px) {
     .navigation {
