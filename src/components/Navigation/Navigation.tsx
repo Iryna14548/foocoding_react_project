@@ -4,11 +4,14 @@ import { Link, NavLink } from 'react-router-dom';
 import { useContext, useState, useMemo } from 'react';
 import Hamburger from './Hamburger';
 import { FavoriteContext } from '../context/FavoriteContext/FavoriteContext';
+import { CartContext } from '../context/CartContext/CartContext';
 
 export default function Navigation() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
     const { favoriteCharacters, favoritePotions, favoriteSpells, favoriteBooks, favoriteMovies } =
         useContext(FavoriteContext);
+
+    const { cartBooks } = useContext(CartContext);
 
     const closeNav = () => {
         setIsNavExpanded(false);
@@ -24,6 +27,11 @@ export default function Navigation() {
             favoriteMovies.length
         );
     }, [favoriteCharacters, favoritePotions, favoriteSpells, favoriteBooks, favoriteMovies]);
+
+    // Memoize the countCart value
+    const countCarts = useMemo(() => {
+        return cartBooks.length;
+    }, [cartBooks]);
 
     return (
         <nav className="navigation">
@@ -106,6 +114,7 @@ export default function Navigation() {
                 <li className="navigation__item navigation-item-icon">
                     <NavLink to="/cart" className="navigation__link" onClick={closeNav}>
                         <span className="navigation-cart__icon cart"> </span>
+                        {countCarts > 0 && <span className="navigation-heart__count">{countCarts}</span>}
                     </NavLink>
                 </li>
             </ul>

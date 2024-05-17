@@ -1,9 +1,9 @@
 import React from 'react';
-import { Book } from '../../Books/interfacesBook';
+import { BookCart } from '../../Books/interfacesBook';
 
 interface CartContextValue {
-    cartBooks: Book[];
-    setCartBooks: (carts: Book[]) => void;
+    cartBooks: BookCart[];
+    setCartBooks: (carts: BookCart[]) => void;
 }
 
 export const CartContext = React.createContext<CartContextValue>({

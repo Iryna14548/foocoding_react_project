@@ -10,6 +10,11 @@ export interface Book {
     wiki: string;
 }
 
+export interface BookCart extends Book {
+    quantity: number;
+    price: number;
+}
+
 export interface BookResponse {
     books: Book[];
     amountOfPages: number;

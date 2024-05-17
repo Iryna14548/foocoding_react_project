@@ -12,7 +12,7 @@ import {
     getFavoriteSpellsFromLocalStorage,
 } from '../context/FavoriteContext/FavoriteUtil';
 import { Spell } from '../Spells/interfacesSpell';
-import { Book } from '../Books/interfacesBook';
+import { Book, BookCart } from '../Books/interfacesBook';
 import { Movie } from '../Movies/interfacesBook';
 import { getCartBooksFromLocalStorage } from '../context/CartContext/CartUtil';
 import { CartContext } from '../context/CartContext/CartContext';
@@ -29,7 +29,7 @@ export default function AppRoot() {
 
     const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>(getFavoriteMoviesFromLocalStorage());
 
-    const [cartBooks, setCartBooks] = useState<Book[]>(getCartBooksFromLocalStorage());
+    const [cartBooks, setCartBooks] = useState<BookCart[]>(getCartBooksFromLocalStorage());
 
     useEffect(() => {
         window.localStorage.setItem('favoriteCharacters', JSON.stringify(favoriteCharacters));

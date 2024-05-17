@@ -12,7 +12,8 @@ export default function BookInfo({ bookInfo }: BookProps) {
 
     const addToCart = () => {
         if (!cartBooks.find((book) => book.id === bookInfo.id)) {
-            setCartBooks([...cartBooks, bookInfo]);
+            const cartBook = { ...bookInfo, quantity: 1, price: 100 };
+            setCartBooks([...cartBooks, cartBook]);
         }
     };
 
