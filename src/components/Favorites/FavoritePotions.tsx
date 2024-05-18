@@ -9,11 +9,7 @@ export default function FavoritePotions() {
     return (
         <>
             <h2 className="favorite-header">My Favorite Potions</h2>
-            {favoritePotions.length > 0 ? (
-                <PotionList potions={favoritePotions} />
-            ) : (
-                <p>You don't have any favorite potions.</p>
-            )}
+            <PotionList potions={favoritePotions} />
         </>
     );
 }

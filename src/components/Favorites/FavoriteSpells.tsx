@@ -9,11 +9,7 @@ export default function FavoriteSpells() {
     return (
         <>
             <h2 className="favorite-header">My Favorite Spells</h2>
-            {favoriteSpells.length > 0 ? (
-                <SpellList spells={favoriteSpells} />
-            ) : (
-                <p>You don't have any favorite spells.</p>
-            )}
+            <SpellList spells={favoriteSpells} />
         </>
     );
 }

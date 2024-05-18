@@ -9,11 +9,7 @@ export default function FavoriteBooks() {
     return (
         <>
             <h2 className="favorite-header">My Favorite Books</h2>
-            {favoriteBooks.length > 0 ? (
-                <BookList books={favoriteBooks} />
-            ) : (
-                <p>You don't have any favorite books.</p>
-            )}
+            <BookList books={favoriteBooks} />
         </>
     );
 }

@@ -9,11 +9,7 @@ export default function FavoriteCharacters() {
     return (
         <>
             <h2 className="favorite-header">My Favorite Characters</h2>
-            {favoriteCharacters.length > 0 ? (
-                <CharacterList characters={favoriteCharacters} />
-            ) : (
-                <p>You don't have any favorite characters.</p>
-            )}
+            <CharacterList characters={favoriteCharacters} />
         </>
     );
 }

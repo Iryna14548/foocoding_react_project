@@ -79,6 +79,10 @@
     display: block;
 }
 
+.book-button:hover {
+    background-color: #f9efb9;
+}
+
 .initial-letter::first-letter {
     float: left;
     font-size: 42px;

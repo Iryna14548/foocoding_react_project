@@ -57,7 +57,7 @@ export default function CartBookItem({ book }: CartBookItemProps) {
                     <h3 className="cart-list-item__name">{book.title}</h3>
 
                     <span className="cart-list-item__quantity">Quantity</span>
-                    <button className="cart-list-item__button">
+                    <span className="cart-list-item__span">
                         <button
                             className="cart-list-item__button-count"
                             onClick={() => {
@@ -75,18 +75,16 @@ export default function CartBookItem({ book }: CartBookItemProps) {
                         >
                             +
                         </button>
-                    </button>
+                    </span>
                 </div>
                 <div className="cart-list-item__price-wrapper">
                     <p className="cart-list-item__price">{bookPrice} kr SEK</p>
-                    <button
-                        className="cart-list-item__remove-button"
+                    <span
+                        className="cart-list-item__remove-icon"
                         onClick={() => {
                             removeFromCart(book);
                         }}
-                    >
-                        remove
-                    </button>
+                    ></span>
                 </div>
             </div>
         </li>

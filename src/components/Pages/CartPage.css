@@ -13,5 +13,27 @@
 
 .cart-list__items {
     padding: 0;
+    max-width: 900px;
+    margin: 0 auto;
     margin-top: 54px;
+}
+
+.cart-total__wrapper {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 32px;
+    padding: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.cart-total {
+    font-size: 24px;
+    margin: 0;
+}
+
+.cart-total__amount {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
 }
